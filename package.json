@@ -1,0 +1,64 @@
+{
+  "name": "vue-use-popperjs",
+  "version": "0.1.6",
+  "description": "Vue 3 popper hook powered by @popperjs",
+  "main": "dist/cjs/index.js",
+  "main:umd": "dist/umd/index.js",
+  "module": "dist/esm/index.js",
+  "unpkg": "dist/umd/index.js",
+  "engines": {
+    "node": ">=10"
+  },
+  "files": [
+    "index.d.ts",
+    "/src",
+    "/dist"
+  ],
+  "keywords": [
+    "tooltip",
+    "popover",
+    "dropdown",
+    "popup",
+    "popper",
+    "positioning engine"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iendeavor/vue-use-popperjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iendeavor/vue-use-popperjs/issues"
+  },
+  "homepage": "https://iendeavor.github.io/vue-use-popperjs",
+  "author": {
+    "name": "Ernest",
+    "email": "iendeavor.github.io@gmail.com",
+    "url": "https://github.com/iendeavor"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "lint": "prettier --check .",
+    "test": "cypress run",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
+    "@popperjs/core": "2",
+    "@rollup/plugin-node-resolve": "^11.2.0",
+    "cypress": "^6.8.0",
+    "husky": "^5.2.0",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.42.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "typescript": "^4.2.3",
+    "vue": "next"
+  },
+  "peerDependencies": {
+    "@popperjs/core": "2",
+    "vue": "next"
+  }
+}
