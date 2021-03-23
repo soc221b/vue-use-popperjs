@@ -191,6 +191,7 @@ export function usePopperjs(
 
   watchEffect(() => {
     instance.value?.destroy()
+    if (!referenceRef.value) return
     instance.value = createPopper(referenceRef.value!, unref(popper), options as Options)
   })
 
