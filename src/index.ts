@@ -1,4 +1,4 @@
-import { nextTick, onMounted, onUnmounted, Ref, ref, unref, watchEffect } from 'vue'
+import { nextTick, onMounted, onUnmounted, onUpdated, Ref, ref, unref, watchEffect } from 'vue'
 import { createPopper, Options, VirtualElement } from '@popperjs/core'
 
 type MaybeRef<T> = T | Ref<T>
@@ -35,10 +35,12 @@ export function usePopperjs(
   >,
 ) {
   const isMounted = ref(false)
+  const updatedFlag = ref(true)
 
   const referenceRef = ref<Element>()
   watchEffect(() => {
     if (!isMounted.value) return
+    if (!updatedFlag.value) return
 
     nextTick(() => {
       if ((unref(reference) as any)?.$el) {
@@ -46,6 +48,7 @@ export function usePopperjs(
       } else {
         referenceRef.value = unref(reference) as Element
       }
+      updatedFlag.value = false
     })
   })
 
@@ -173,6 +176,12 @@ export function usePopperjs(
 
   onMounted(() => {
     isMounted.value = true
+  })
+
+  onUpdated(() => {
+    nextTick(() => {
+      updatedFlag.value = true
+    })
   })
 
   onUnmounted(() => {
