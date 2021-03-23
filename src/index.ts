@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted, Ref, ref, unref, watchEffect } from 'vue'
+import { nextTick, onMounted, onUnmounted, Ref, ref, unref, watchEffect } from 'vue'
 import { createPopper, Options, VirtualElement } from '@popperjs/core'
 
 type MaybeRef<T> = T | Ref<T>
@@ -34,6 +34,21 @@ export function usePopperjs(
       }
   >,
 ) {
+  const isMounted = ref(false)
+
+  const referenceRef = ref<Element>()
+  watchEffect(() => {
+    if (!isMounted.value) return
+
+    nextTick(() => {
+      if ((unref(reference) as any)?.$el) {
+        referenceRef.value = (unref(reference) as any).$el
+      } else {
+        referenceRef.value = unref(reference) as Element
+      }
+    })
+  })
+
   const instance = ref<ReturnType<typeof createPopper>>()
 
   const visible = ref(false)
@@ -64,7 +79,7 @@ export function usePopperjs(
   }
 
   const doCloseForDocument = (e: Event) => {
-    if ((unref(reference) as Element).contains(e.target as Element)) return
+    if (referenceRef.value?.contains(e.target as Element)) return
     if ((unref(popper) as Element).contains(e.target as Element)) return
     doClose()
   }
@@ -74,29 +89,29 @@ export function usePopperjs(
 
     switch (options?.trigger ?? 'hover') {
       case 'click-to-open': {
-        on(unref(reference) as Element, 'click', doOpen)
+        on(referenceRef.value!, 'click', doOpen)
         on(document as any, 'click', doCloseForDocument)
         break
       }
 
       case 'click-to-toggle': {
-        on(unref(reference) as Element, 'click', doToggle)
+        on(referenceRef.value!, 'click', doToggle)
         on(document as any, 'click', doCloseForDocument)
         break
       }
 
       case 'hover': {
-        on(unref(reference) as Element, 'mouseover', doMouseover)
+        on(referenceRef.value!, 'mouseover', doMouseover)
         on(unref(popper) as Element, 'mouseover', doMouseover)
-        on(unref(reference) as Element, 'mouseout', doMouseout)
+        on(referenceRef.value!, 'mouseout', doMouseout)
         on(unref(popper) as Element, 'mouseout', doMouseout)
         break
       }
 
       case 'focus': {
-        on(unref(reference) as Element, 'focus', doOpen)
+        on(referenceRef.value!, 'focus', doOpen)
         on(unref(popper), 'focus', doOpen)
-        on(unref(reference) as Element, 'blur', doClose)
+        on(referenceRef.value!, 'blur', doClose)
         on(unref(popper), 'blur', doClose)
         break
       }
@@ -112,24 +127,26 @@ export function usePopperjs(
   }
 
   const doOff = () => {
-    off(unref(reference) as Element, 'click', doOpen)
+    off(referenceRef.value!, 'click', doOpen)
     off(document as any, 'click', doCloseForDocument)
 
-    off(unref(reference) as Element, 'click', doToggle)
+    off(referenceRef.value!, 'click', doToggle)
 
-    off(unref(reference) as Element, 'mouseover', doMouseover)
+    off(referenceRef.value!, 'mouseover', doMouseover)
     off(unref(popper) as Element, 'mouseover', doMouseover)
-    off(unref(reference) as Element, 'mouseout', doMouseout)
+    off(referenceRef.value!, 'mouseout', doMouseout)
     off(unref(popper) as Element, 'mouseout', doMouseout)
 
-    off(unref(reference) as Element, 'focus', doOpen)
+    off(referenceRef.value!, 'focus', doOpen)
     off(unref(popper), 'focus', doOpen)
-    off(unref(reference) as Element, 'blur', doClose)
+    off(referenceRef.value!, 'blur', doClose)
     off(unref(popper), 'blur', doClose)
   }
 
   watchEffect(() => {
+    if (!isMounted.value) return
     if (!instance.value) return
+    if (!referenceRef.value) return
 
     if (options?.forceShow) {
       visible.value = true
@@ -141,6 +158,7 @@ export function usePopperjs(
   })
 
   watchEffect(async () => {
+    if (!isMounted.value) return
     if (!instance.value) return
 
     if (visible.value || options?.forceShow) {
@@ -154,11 +172,17 @@ export function usePopperjs(
   })
 
   onMounted(() => {
-    instance.value = createPopper(unref(reference), unref(popper), options as Options)
+    isMounted.value = true
   })
 
   onUnmounted(() => {
+    isMounted.value = false
     instance.value?.destroy()
+  })
+
+  watchEffect(() => {
+    instance.value?.destroy()
+    instance.value = createPopper(referenceRef.value!, unref(popper), options as Options)
   })
 
   return {
