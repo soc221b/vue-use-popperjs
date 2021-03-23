@@ -38,6 +38,7 @@ export function usePopperjs(
   const updatedFlag = ref(true)
 
   const referenceRef = ref<Element>()
+  const popperRef = ref<HTMLElement>()
   watchEffect(() => {
     if (!isMounted.value) return
     if (!updatedFlag.value) return
@@ -48,6 +49,13 @@ export function usePopperjs(
       } else {
         referenceRef.value = unref(reference) as Element
       }
+
+      if ((unref(popper) as any)?.$el) {
+        popperRef.value = (unref(popper) as any).$el
+      } else {
+        popperRef.value = unref(popper)
+      }
+
       updatedFlag.value = false
     })
   })
@@ -83,7 +91,7 @@ export function usePopperjs(
 
   const doCloseForDocument = (e: Event) => {
     if (referenceRef.value?.contains(e.target as Element)) return
-    if ((unref(popper) as Element).contains(e.target as Element)) return
+    if (popperRef.value?.contains(e.target as Element)) return
     doClose()
   }
 
@@ -105,17 +113,17 @@ export function usePopperjs(
 
       case 'hover': {
         on(referenceRef.value!, 'mouseover', doMouseover)
-        on(unref(popper) as Element, 'mouseover', doMouseover)
+        on(popperRef.value!, 'mouseover', doMouseover)
         on(referenceRef.value!, 'mouseout', doMouseout)
-        on(unref(popper) as Element, 'mouseout', doMouseout)
+        on(popperRef.value!, 'mouseout', doMouseout)
         break
       }
 
       case 'focus': {
         on(referenceRef.value!, 'focus', doOpen)
-        on(unref(popper), 'focus', doOpen)
+        on(popperRef.value!, 'focus', doOpen)
         on(referenceRef.value!, 'blur', doClose)
-        on(unref(popper), 'blur', doClose)
+        on(popperRef.value!, 'blur', doClose)
         break
       }
 
@@ -136,14 +144,14 @@ export function usePopperjs(
     off(referenceRef.value!, 'click', doToggle)
 
     off(referenceRef.value!, 'mouseover', doMouseover)
-    off(unref(popper) as Element, 'mouseover', doMouseover)
+    off(popperRef.value!, 'mouseover', doMouseover)
     off(referenceRef.value!, 'mouseout', doMouseout)
-    off(unref(popper) as Element, 'mouseout', doMouseout)
+    off(popperRef.value!, 'mouseout', doMouseout)
 
     off(referenceRef.value!, 'focus', doOpen)
-    off(unref(popper), 'focus', doOpen)
+    off(popperRef.value!, 'focus', doOpen)
     off(referenceRef.value!, 'blur', doClose)
-    off(unref(popper), 'blur', doClose)
+    off(popperRef.value!, 'blur', doClose)
   }
 
   watchEffect(() => {
@@ -165,11 +173,11 @@ export function usePopperjs(
     if (!instance.value) return
 
     if (visible.value || options?.forceShow) {
-      unref(popper).classList.remove('vue-use-popperjs-none')
+      popperRef.value?.classList.remove('vue-use-popperjs-none')
       options?.onShow?.()
       instance.value?.update()
     } else {
-      unref(popper).classList.add('vue-use-popperjs-none')
+      popperRef.value?.classList.add('vue-use-popperjs-none')
       options?.onHide?.()
     }
   })
@@ -192,7 +200,8 @@ export function usePopperjs(
   watchEffect(() => {
     instance.value?.destroy()
     if (!referenceRef.value) return
-    instance.value = createPopper(referenceRef.value!, unref(popper), options as Options)
+    if (!popperRef.value) return
+    instance.value = createPopper(referenceRef.value!, popperRef.value!, options as Options)
   })
 
   return {
