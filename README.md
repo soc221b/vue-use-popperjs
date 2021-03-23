@@ -51,6 +51,13 @@ Via `script` tag (UMD library exposed as `VueUsePopperjs`):
     },
   })
 </script>
+
+<style>
+  :global(.vue-use-popperjs-none) {
+    visibility: hidden;
+    pointer-events: none;
+  }
+</style>
 ```
 
 # API
