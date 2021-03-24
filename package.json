@@ -40,6 +40,7 @@
     "build": "rollup -c rollup.config.js",
     "lint": "prettier --check .",
     "test": "cypress run",
+    "prepublish": "yarn build",
     "prepare": "husky install"
   },
   "devDependencies": {
