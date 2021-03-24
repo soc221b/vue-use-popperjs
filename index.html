@@ -3,6 +3,7 @@
   <head>
     <title>Vue-use-popper Example</title>
 
+    <link href="https://fonts.googleapis.com/css2?family=Dosis" rel="stylesheet" />
     <link href="https://unpkg.com/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
 
     <style>
@@ -10,6 +11,7 @@
         background-color: rgba(47, 38, 60);
         overflow-x: hidden;
         padding: 0;
+        font-family: 'Dosis';
       }
 
       .text-primary {
@@ -19,6 +21,10 @@
       header {
         width: 100vw;
         text-align: center;
+      }
+
+      #version {
+        font-size: 1rem;
       }
 
       header pre {
@@ -71,7 +77,7 @@
 
   <body>
     <header>
-      <h1 class="text-primary">Vue-use-popperjs</h1>
+      <h1 class="text-primary">Vue-use-popperjs<span id="version"></span></h1>
 
       <h2 class="text-primary">Installation</h2>
 
@@ -154,5 +160,12 @@ defineComponent({
 
     <script src="https://unpkg.com/prismjs/components/prism-core.min.js"></script>
     <script src="https://unpkg.com/prismjs/plugins/autoloader/prism-autoloader.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/vue-use-popperjs/dist/umd/index.js"></script>
+    <script>
+      document.querySelector('#version').textContent = ` (v${VueUsePopperjs.version})`
+    </script>
   </body>
 </html>
