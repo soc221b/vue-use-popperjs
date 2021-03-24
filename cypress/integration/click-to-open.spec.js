@@ -32,7 +32,7 @@ context('click-to-open', () => {
     cy.get('#reference').trigger('click')
     cy.get('#popper').should('be.visible')
 
-    cy.get('body').trigger('click')
+    cy.get('body').trigger('click', 'bottomRight')
 
     cy.get('#popper').should('not.be.visible')
   })

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vue-use-popper Example</title>
+
+    <link href="https://unpkg.com/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+
+    <style>
+      html {
+        background-color: rgba(47, 38, 60);
+        overflow-x: hidden;
+        padding: 0;
+      }
+
+      .text-primary {
+        color: #41b883;
+      }
+
+      header {
+        width: 100vw;
+        text-align: center;
+      }
+
+      header pre {
+        width: 480px !important;
+        overflow-x: auto !important;
+        margin: auto !important;
+        width: fit-content;
+        border-radius: 10px;
+        background-color: #281e36 !important;
+      }
+
+      .mt-3 {
+        margin-top: 12px !important;
+      }
+
+      main {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        align-items: center;
+        margin: 0 auto;
+      }
+
+      iframe {
+        display: block;
+        overflow: hidden;
+        width: auto;
+        height: auto;
+        border: none;
+        padding: 0;
+      }
+
+      @font-face {
+        font-family: 'FontAwesomeSolid';
+        font-weight: bold;
+        font-style: normal;
+        src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/webfonts/fa-solid-900.ttf')
+          format('truetype');
+      }
+
+      a[target='_blank']::after {
+        content: ' \f35d';
+        font-family: 'FontAwesomeSolid';
+        color: white;
+        font-size: 0.8rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1 class="text-primary">Vue-use-popperjs</h1>
+
+      <h2 class="text-primary">Installation</h2>
+
+      <pre class="mt-3"><code class="language-shell"># With Npm
+npm i vue-use-popperjs @popperjs/core@2
+# With Yarn
+yarn add vue-use-popperjs @popperjs/core@2</code></pre>
+
+      <pre class="mt-3"><code class="language-html"># With CDN
+&lt;script src="https://unpkg.com/@popperjs/core@2">&lt;/script>
+&lt;script src="https://unpkg.com/vue-use-popperjs/dist/umd/index.js">&lt;/script></code></pre>
+
+      <h2 class="text-primary">Basic usage</h2>
+
+      <pre class="mt-3"><code class="language-html">&lt;button ref="reference">Reference&lt;/button>
+&lt;div ref="popper">Popper&lt;/div></code></pre>
+
+      <pre class="mt-3"><code class="language-js">import { defineComponent, ref } from 'vue'
+import { usePopperjs } from 'vue-use-popperjs'
+
+defineComponent({
+  setup() {
+    const reference = ref()
+    const popper = ref()
+
+    usePopperjs(reference, popper, {
+      placement: 'bottom'
+    })
+
+    return {
+      reference,
+      popper,
+    }
+  },
+})</code></pre>
+
+      <pre class="mt-3"><code class="language-css">:global(.vue-use-popperjs-none) {
+  visibility: hidden;
+  pointer-events: none;
+}</code></pre>
+    </header>
+
+    <main class="mt-3">
+      <h2 class="text-primary">Examples</h2>
+
+      <a href="https://github.com/iendeavor/vue-use-popperjs/blob/HEAD/cypress/fixtures/hover.html" target="_blank"
+        ><b class="text-primary">Hover</b></a
+      >
+      <iframe src="./cypress/fixtures/hover.html"></iframe>
+
+      <a href="https://github.com/iendeavor/vue-use-popperjs/blob/HEAD/cypress/fixtures/focus.html" target="_blank"
+        ><b class="text-primary">Focus</b></a
+      >
+      <iframe src="./cypress/fixtures/focus.html"></iframe>
+
+      <a
+        href="https://github.com/iendeavor/vue-use-popperjs/blob/HEAD/cypress/fixtures/click-to-open.html"
+        target="_blank"
+        ><b class="text-primary">Click to open</b></a
+      >
+      <iframe src="./cypress/fixtures/click-to-open.html"></iframe>
+
+      <a
+        href="https://github.com/iendeavor/vue-use-popperjs/blob/HEAD/cypress/fixtures/click-to-toggle.html"
+        target="_blank"
+        ><b class="text-primary">Click to toggle</b></a
+      >
+      <iframe src="./cypress/fixtures/click-to-toggle.html"></iframe>
+
+      <a href="https://github.com/iendeavor/vue-use-popperjs/blob/HEAD/cypress/fixtures/manual.html" target="_blank"
+        ><b class="text-primary">Manual</b></a
+      >
+      <iframe src="./cypress/fixtures/manual.html"></iframe>
+
+      <a href="https://github.com/iendeavor/vue-use-popperjs/blob/HEAD/cypress/fixtures/flip.html" target="_blank"
+        ><b class="text-primary">Flip</b></a
+      >
+      <iframe src="./cypress/fixtures/flip.html"></iframe>
+    </main>
+
+    <script src="https://unpkg.com/prismjs/components/prism-core.min.js"></script>
+    <script src="https://unpkg.com/prismjs/plugins/autoloader/prism-autoloader.min.js"></script>
+  </body>
+</html>

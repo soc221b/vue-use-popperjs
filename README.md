@@ -5,60 +5,9 @@ The usePopperjs hook provides an API identical to the ones of
 
 <img alt="Workflow status badge" src="https://github.com/iendeavor/vue-use-popperjs/workflows/CI/badge.svg" />
 
-# Install
+# Documentation
 
-> Note: `vue@next` and `@popperjs/core@2` must be installed in your project in order for vue-use-popperjs to work.
-
-Via package managers:
-
-```sh
-# With npm
-npm i vue-use-popperjs @popperjs/core
-
-# With Yarn
-yarn add vue-use-popperjs @popperjs/core
-```
-
-Via `script` tag (UMD library exposed as `VueUsePopperjs`):
-
-```html
-<script src="https://unpkg.com/vue-use-popperjs/dist/umd/index.js"></script>
-```
-
-# Example
-
-```html
-<template>
-  <button ref="reference">My button</button>
-  <div id="popper" ref="popper">My popper</div>
-</template>
-
-<script>
-  import { defineComponent, ref } from 'vue'
-  import { usePopperjs } from 'vue-use-popperjs'
-
-  export default defineComponent({
-    setup() {
-      const reference = ref()
-      const popper = ref()
-
-      usePopperjs(reference, popper)
-
-      return {
-        reference,
-        popper,
-      }
-    },
-  })
-</script>
-
-<style>
-  :global(.vue-use-popperjs-none) {
-    visibility: hidden;
-    pointer-events: none;
-  }
-</style>
-```
+https://iendeavor.github.io/vue-use-popperjs/
 
 # API
 
