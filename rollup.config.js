@@ -1,6 +1,7 @@
 import rm from 'rimraf'
 import { terser } from 'rollup-plugin-terser'
 import typescript from 'rollup-plugin-typescript2'
+import json from '@rollup/plugin-json'
 
 rm.sync('dist')
 
@@ -35,5 +36,5 @@ export default {
       plugins: [terser()],
     },
   ],
-  plugins: [typescript()],
+  plugins: [typescript(), json()],
 }

@@ -1,6 +1,8 @@
 import { nextTick, onMounted, onUnmounted, onUpdated, Ref, ref, unref, watchEffect } from 'vue'
 import { createPopper, Options, VirtualElement } from '@popperjs/core'
 
+export { version } from '../package.json'
+
 type MaybeRef<T> = T | Ref<T>
 
 type Trigger = 'hover' | 'focus' | 'click-to-open' | 'click-to-toggle' | 'manual'
