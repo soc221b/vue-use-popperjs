@@ -65,5 +65,8 @@
   "peerDependencies": {
     "@popperjs/core": "2",
     "vue": "next"
+  },
+  "dependencies": {
+    "core-js": "^3.9.1"
   }
 }
