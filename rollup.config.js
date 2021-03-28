@@ -2,6 +2,7 @@ import rm from 'rimraf'
 import { terser } from 'rollup-plugin-terser'
 import typescript from 'rollup-plugin-typescript2'
 import json from '@rollup/plugin-json'
+import babel from '@rollup/plugin-babel'
 
 rm.sync('dist')
 
@@ -36,5 +37,5 @@ export default {
       plugins: [terser()],
     },
   ],
-  plugins: [typescript(), json()],
+  plugins: [typescript(), json(), babel({ babelHelpers: 'bundled', extensions: ['.ts'] })],
 }
