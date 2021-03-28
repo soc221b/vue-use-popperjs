@@ -5,6 +5,7 @@ import { terser } from 'rollup-plugin-terser'
 import typescript from 'rollup-plugin-typescript2'
 import json from '@rollup/plugin-json'
 import babel from '@rollup/plugin-babel'
+import resolve from '@rollup/plugin-node-resolve'
 
 rm.sync('dist')
 
@@ -39,5 +40,6 @@ export default {
       plugins: [terser()],
     },
   ],
-  plugins: [typescript(), json(), babel({ babelHelpers: 'bundled', extensions: ['.ts'] })],
+  external: ['vue', '@popperjs/core'],
+  plugins: [resolve(), typescript(), json(), babel({ babelHelpers: 'bundled', extensions: ['.ts'] })],
 }
