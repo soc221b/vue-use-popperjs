@@ -1,3 +1,5 @@
+/** @type {import('rollup').RollupOptions} */
+
 import rm from 'rimraf'
 import { terser } from 'rollup-plugin-terser'
 import typescript from 'rollup-plugin-typescript2'
