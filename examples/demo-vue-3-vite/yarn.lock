@@ -2,10 +2,23 @@
 # yarn lockfile v1
 
 
+"@babel/helper-validator-identifier@^7.14.9":
+  version "7.15.7"
+  resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.15.7.tgz#220df993bfe904a4a6b02ab4f3385a5ebf6e2389"
+  integrity sha512-K4JvCtQqad9OY2+yTU8w+E82ywk/fe+ELNlt1G8z3bVGlZfn/hOcQQsUhGhW/N+tb3fxK800wLtKOE/aM0m72w==
+
 "@babel/parser@^7.15.0":
   version "7.15.7"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.15.7.tgz#0c3ed4a2eb07b165dfa85b3cc45c727334c4edae"
   integrity sha512-rycZXvQ+xS9QyIcJ9HXeDWf1uxqlbVFAUq0Rq0dbc50Zb/+wUe/ehyfzGfm9KZZF0kBejYgxltBXocP+gKdL2g==
+
+"@babel/types@^7.15.6":
+  version "7.15.6"
+  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.15.6.tgz#99abdc48218b2881c058dd0a7ab05b99c9be758f"
+  integrity sha512-BPU+7QhqNjmWyDO0/vitH/CuhpV8ZmK1wpKva8nuyNF5MJfuRNWMc+hc14+u9xT93kvykMdncrJT19h74uB1Ig==
+  dependencies:
+    "@babel/helper-validator-identifier" "^7.14.9"
+    to-fast-properties "^2.0.0"
 
 "@popperjs/core@2":
   version "2.10.2"
@@ -502,6 +515,11 @@ string_decoder@~1.1.1:
   dependencies:
     safe-buffer "~5.1.0"
 
+to-fast-properties@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-2.0.0.tgz#dc5e698cbd079265bc73e0377681a4e4e83f616e"
+  integrity sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=
+
 "traverse@>=0.3.0 <0.4":
   version "0.3.9"
   resolved "https://registry.yarnpkg.com/traverse/-/traverse-0.3.9.tgz#717b8f220cc0bb7b44e40514c22b2e8bbc70d8b9"
@@ -557,10 +575,10 @@ vue-tsc@^0.0.24:
   dependencies:
     unzipper "0.10.11"
 
-vue-use-popperjs@^0.1.17:
-  version "0.1.17"
-  resolved "https://registry.yarnpkg.com/vue-use-popperjs/-/vue-use-popperjs-0.1.17.tgz#9d57bde6d90de47d439f7cd4dfa1ab96ea65572f"
-  integrity sha512-737Zh4sXzk/V7b1sFx0u9SOADH2d0vRkfg2kOfn5Gs+ecubw2SFVNhv9fSsbHteDpfDjWVF9/bvd+lk93AUi0Q==
+vue-use-popperjs@^0.1.22:
+  version "0.1.22"
+  resolved "https://registry.yarnpkg.com/vue-use-popperjs/-/vue-use-popperjs-0.1.22.tgz#e30c47d86ab7a7980a53d158564a58e8aa330199"
+  integrity sha512-NjyrHnkIYPU6dSji+I/S5EdMv0FrT1AETjIxWFvI6xcfHfUHY5Z0iCH4LaQhxHS1sNOO3zWhVGv91vzP85tA/A==
   dependencies:
     "@popperjs/core" "2"
     core-js "^3.9.1"

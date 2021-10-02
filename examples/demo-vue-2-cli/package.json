@@ -8,11 +8,11 @@
   },
   "dependencies": {
     "@vue/composition-api": "^1.2.2",
-    "vue": "^2.6.11",
-    "vue-use-popperjs": "^0.1.19"
+    "vue": "^2.6.12",
+    "vue-use-popperjs": "^0.1.22"
   },
   "devDependencies": {
     "@vue/cli-service": "~4.5.0",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.12"
   }
 }
