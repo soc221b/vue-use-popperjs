@@ -1,6 +1,6 @@
 {
   "name": "vue-use-popperjs",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "engines": {
     "node": "^12.13.0 || ^14.15.0"
   },
