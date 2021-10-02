@@ -8,7 +8,7 @@ build:
 	yarn rollup -c rollup.config.js
 
 test:
-	yarn cypress
+	yarn cypress run
 
 clean:
 	rm -rf /node_modules
