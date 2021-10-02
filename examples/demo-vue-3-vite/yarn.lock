@@ -557,7 +557,7 @@ vue-tsc@^0.0.24:
   dependencies:
     unzipper "0.10.11"
 
-vue-use-popperjs@latest:
+vue-use-popperjs@^0.1.17:
   version "0.1.17"
   resolved "https://registry.yarnpkg.com/vue-use-popperjs/-/vue-use-popperjs-0.1.17.tgz#9d57bde6d90de47d439f7cd4dfa1ab96ea65572f"
   integrity sha512-737Zh4sXzk/V7b1sFx0u9SOADH2d0vRkfg2kOfn5Gs+ecubw2SFVNhv9fSsbHteDpfDjWVF9/bvd+lk93AUi0Q==

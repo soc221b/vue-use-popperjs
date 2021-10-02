@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "vue": "^3.0.5",
-    "vue-use-popperjs": "latest"
+    "vue-use-popperjs": "^0.1.17"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.2.5",

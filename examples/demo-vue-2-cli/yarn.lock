@@ -6484,10 +6484,10 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue-use-popperjs@^0.1.17:
-  version "0.1.17"
-  resolved "https://registry.yarnpkg.com/vue-use-popperjs/-/vue-use-popperjs-0.1.17.tgz#9d57bde6d90de47d439f7cd4dfa1ab96ea65572f"
-  integrity sha512-737Zh4sXzk/V7b1sFx0u9SOADH2d0vRkfg2kOfn5Gs+ecubw2SFVNhv9fSsbHteDpfDjWVF9/bvd+lk93AUi0Q==
+vue-use-popperjs@^0.1.19:
+  version "0.1.19"
+  resolved "https://registry.yarnpkg.com/vue-use-popperjs/-/vue-use-popperjs-0.1.19.tgz#1b18061ce17aec1ded1acdde9051d0844fb83d6e"
+  integrity sha512-OWSdd8Ur2fQdFKRnyKlIvk3rCEPXHPxwtXSsnxVotbQevx4Zdww1Ufq6L1CLpsSGOzrgYxt4aKYlhiqAYz7ToQ==
   dependencies:
     "@popperjs/core" "2"
     core-js "^3.9.1"

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div id="popcorn" ref="popcorn" aria-describedby="tooltip"></div>
-    <div id="tooltip" ref="tooltip" role="tooltip">
+    <div ref="popcorn" id="popcorn" aria-describedby="tooltip"></div>
+    <div v-show="visible" ref="tooltip" id="tooltip" role="tooltip">
       My tooltip
       <div id="arrow" data-popper-arrow></div>
     </div>
@@ -16,12 +16,17 @@ export default defineComponent({
   setup() {
     const popcorn = ref();
     const tooltip = ref();
-    // const { instance, visible } = usePopperjs(popcord, tooltip, { trigger: 'hover' })
+    const { instance, visible } = usePopperjs(popcorn, tooltip, {
+      trigger: "hover",
+      placement: "top",
+      delayOnMouseover: 0,
+      delayOnMouseout: 200,
+    });
 
     return {
       popcorn,
       tooltip,
-      // visible,
+      visible,
     };
   },
 });
