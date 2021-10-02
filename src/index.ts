@@ -3,11 +3,11 @@ import { createPopper, Options, VirtualElement } from '@popperjs/core'
 
 export { version } from '../package.json'
 
-type MaybeRef<T> = T | Ref<T>
+export type MaybeRef<T> = T | Ref<T>
 
-type Trigger = 'hover' | 'focus' | 'click-to-open' | 'click-to-toggle' | 'manual'
+export type Trigger = 'hover' | 'focus' | 'click-to-open' | 'click-to-toggle' | 'manual'
 
-type EventOptions = {
+export type EventOptions = {
   onShow: Function
   onHide: Function
 }
