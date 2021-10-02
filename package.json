@@ -10,7 +10,10 @@
   "unpkg": "dist/index.iife.prod.js",
   "jsdelivr": "dist/index.iife.prod.js",
   "types": "src/index.ts",
-  "repository": "git@github.com:iendeavor/vue-use-popperjs.git",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:iendeavor/vue-use-popperjs.git"
+  },
   "home": "https://github.com/iendeavor/vue-use-popperjs",
   "bugs": {
     "url": "https://github.com/iendeavor/vue-use-popperjs/issues"
@@ -27,7 +30,15 @@
     "dropdown",
     "popup",
     "popper",
-    "positioning engine"
+    "positioning engine",
+    "vue-popper.js",
+    "vue-popover",
+    "vuejs-popper.js",
+    "vuejs-popover",
+    "vue",
+    "vuejs",
+    "vue-composition-api",
+    "vue-demi"
   ],
   "scripts": {
     "postinstall": "husky install",
