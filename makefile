@@ -8,10 +8,7 @@ build:
 	yarn rollup -c rollup.config.js
 
 test:
-	yarn jest --coverage
-
-test-watch:
-	yarn jest --watch
+	yarn cypress
 
 clean:
 	rm -rf /node_modules

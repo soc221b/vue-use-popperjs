@@ -50,6 +50,7 @@
     "@types/node": "^16.7.5",
     "change-case": "^4.1.2",
     "conventional-changelog-cli": "^2.1.1",
+    "cypress": "^8.5.0",
     "husky": "^7.0.2",
     "jest": "^27",
     "pinst": "^2.1.6",
