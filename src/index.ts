@@ -6,7 +6,7 @@ import {
   Ref,
   ref,
   unref,
-  watchEffect,
+  watch,
 } from "vue-demi";
 import { createPopper, Options } from "@popperjs/core";
 
@@ -56,16 +56,31 @@ export function usePopperjs(
       }
   >
 ) {
-  const isMounted = ref(false);
-  const updatedFlag = ref(true);
+  const isChildrenMounted = ref(false);
+  onMounted(() => {
+    nextTick(() => {
+      isChildrenMounted.value = true;
+    });
+  });
+  onUnmounted(() => {
+    isChildrenMounted.value = false;
+    destroy();
+  });
+
+  const childrenUpdatedFlag = ref(true);
+  onUpdated(() => {
+    nextTick(() => {
+      childrenUpdatedFlag.value = !childrenUpdatedFlag.value;
+    });
+  });
 
   const referenceRef = ref<Element>();
   const popperRef = ref<HTMLElement>();
-  watchEffect(() => {
-    if (!isMounted.value) return;
-    if (!updatedFlag.value) return;
+  watch(
+    () => [isChildrenMounted.value, childrenUpdatedFlag.value],
+    () => {
+      if (!isChildrenMounted.value) return;
 
-    nextTick(() => {
       if ((unref(reference) as any)?.$el) {
         referenceRef.value = (unref(reference) as any).$el;
       } else {
@@ -77,17 +92,50 @@ export function usePopperjs(
       } else {
         popperRef.value = unref(popper);
       }
-
-      updatedFlag.value = false;
-    });
-  });
+    }
+  );
 
   const instance = ref<ReturnType<typeof createPopper>>();
+  watch(
+    () => [referenceRef.value, popperRef.value],
+    () => {
+      destroy();
+      if (!referenceRef.value) return;
+      if (!popperRef.value) return;
+
+      concrete();
+    }
+  );
+  const concrete = () => {
+    instance.value = createPopper(
+      referenceRef.value!,
+      popperRef.value!,
+      options as Options
+    );
+  };
+  const destroy = () => {
+    instance.value?.destroy();
+    instance.value = undefined;
+  };
 
   const visible = ref(false);
   const doToggle = () => (visible.value = !visible.value);
   const doOpen = () => (visible.value = true);
   const doClose = () => (visible.value = false);
+  watch(
+    () => [instance.value],
+    () => {
+      if (!instance.value) return;
+
+      if (options?.forceShow) {
+        visible.value = true;
+        doOff();
+        return;
+      }
+
+      doOn();
+    }
+  );
 
   const timer = ref<any>();
   const doMouseover = () => {
@@ -109,12 +157,6 @@ export function usePopperjs(
         doClose();
       }, options?.delayOnMouseout ?? 200);
     }
-  };
-
-  const doCloseForDocument = (e: Event) => {
-    if (referenceRef.value?.contains(e.target as Element)) return;
-    if (popperRef.value?.contains(e.target as Element)) return;
-    doClose();
   };
 
   const doOn = () => {
@@ -158,7 +200,6 @@ export function usePopperjs(
       }
     }
   };
-
   const doOff = () => {
     off(referenceRef.value!, "click", doOpen);
     off(document as any, "click", doCloseForDocument);
@@ -175,60 +216,27 @@ export function usePopperjs(
     off(referenceRef.value!, "blur", doClose);
     off(popperRef.value!, "blur", doClose);
   };
+  const doCloseForDocument = (e: Event) => {
+    if (referenceRef.value?.contains(e.target as Element)) return;
+    if (popperRef.value?.contains(e.target as Element)) return;
+    doClose();
+  };
 
-  watchEffect(() => {
-    if (!isMounted.value) return;
-    if (!instance.value) return;
-    if (!referenceRef.value) return;
+  watch(
+    () => [instance.value, visible.value],
+    () => {
+      if (!instance.value) return;
 
-    if (options?.forceShow) {
-      visible.value = true;
-      doOff();
-      return;
+      if (visible.value || options?.forceShow) {
+        popperRef.value?.classList.remove("vue-use-popperjs-none");
+        options?.onShow?.();
+        instance.value?.update();
+      } else {
+        popperRef.value?.classList.add("vue-use-popperjs-none");
+        options?.onHide?.();
+      }
     }
-
-    doOn();
-  });
-
-  watchEffect(async () => {
-    if (!isMounted.value) return;
-    if (!instance.value) return;
-
-    if (visible.value || options?.forceShow) {
-      popperRef.value?.classList.remove("vue-use-popperjs-none");
-      options?.onShow?.();
-      instance.value?.update();
-    } else {
-      popperRef.value?.classList.add("vue-use-popperjs-none");
-      options?.onHide?.();
-    }
-  });
-
-  onMounted(() => {
-    isMounted.value = true;
-  });
-
-  onUpdated(() => {
-    nextTick(() => {
-      updatedFlag.value = true;
-    });
-  });
-
-  onUnmounted(() => {
-    isMounted.value = false;
-    instance.value?.destroy();
-  });
-
-  watchEffect(() => {
-    instance.value?.destroy();
-    if (!referenceRef.value) return;
-    if (!popperRef.value) return;
-    instance.value = createPopper(
-      referenceRef.value!,
-      popperRef.value!,
-      options as Options
-    );
-  });
+  );
 
   return {
     instance,
