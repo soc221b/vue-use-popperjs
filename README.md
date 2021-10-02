@@ -5,25 +5,87 @@ The usePopperjs hook provides an API identical to the ones of
 
 <img alt="Workflow status badge" src="https://github.com/iendeavor/vue-use-popperjs/workflows/CI/badge.svg" />
 
-# API
+## Getting Started
 
-## Parameters
+### Installation
 
-### Reference
+For vue@3:
+
+```sh
+yarn add vue-use-popperjs
+```
+
+For vue@2 + @vue/composition-api
+
+```sh
+yarn add vue-use-popperjs @vue/composition-api
+```
+
+### Usage
+
+```html
+<template>
+  <div>
+    <div ref="popcorn" id="popcorn" aria-describedby="tooltip"></div>
+    <div v-show="visible" ref="tooltip" id="tooltip" role="tooltip">
+      My tooltip
+      <div id="arrow" data-popper-arrow></div>
+    </div>
+  </div>
+</template>
+
+<script>
+  // For Vue@3
+  import { ref } from "vue";
+  // For Vue@2
+  import { ref } from "@vue/composition-api";
+  import { usePopperjs } from "vue-use-popperjs";
+
+  export default {
+    setup() {
+      const popcorn = ref();
+      const tooltip = ref();
+      const { instance, visible } = usePopperjs(popcorn, tooltip, {
+        placement: "top",
+        modifiers: [
+          {
+            name: "offset",
+            options: {
+              offset: [0, 8],
+            },
+          },
+        ],
+      });
+
+      return {
+        popcorn,
+        tooltip,
+        visible,
+      };
+    },
+  };
+</script>
+```
+
+## API
+
+### Parameters
+
+#### Reference
 
 `type: MaybeRef<Element | VirtualElement>`
 
-### Popper
+#### Popper
 
 `type: MaybeRef<HTMLElement>`
 
-### Options
+#### Options
 
-#### Popperjs Options
+##### Popperjs Options
 
 See [popper.js](https://popper.js.org/docs/v2/constructors)
 
-#### Extra Options
+##### Extra Options
 
 | Option             | Default   | Type                                                                     | Description                                                                                                                                                                                                                                                                                                                                                                           |
 | ------------------ | --------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -32,7 +94,7 @@ See [popper.js](https://popper.js.org/docs/v2/constructors)
 | delay-on-mouseout  | 200       | number                                                                   | Delay in ms before hiding popper during the mouseout event, only applicable for `trigger='hover'`                                                                                                                                                                                                                                                                                     |
 | force-show         | false     | boolean                                                                  | Force show the popper even manually (see the visible of returned value) close it                                                                                                                                                                                                                                                                                                      |
 
-## Return Type
+### Return Type
 
 | Key      | Type            | Description                                                                          |
 | -------- | --------------- | ------------------------------------------------------------------------------------ |

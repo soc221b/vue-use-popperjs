@@ -10,7 +10,7 @@
 
 <script>
 import { defineComponent, ref } from "@vue/composition-api";
-import { usePopperjs } from "vue-use-popperjs/dist/index.es";
+import { usePopperjs } from "vue-use-popperjs";
 
 export default defineComponent({
   setup() {
