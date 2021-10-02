@@ -1,6 +1,6 @@
 {
   "name": "vue-use-popperjs",
-  "version": "0.1.15",
+  "version": "0.1.17",
   "description": "Vue 2, 3 popper hook powered by @popperjs",
   "types": "src/index.ts",
   "main": "dist/cjs/index.js",
