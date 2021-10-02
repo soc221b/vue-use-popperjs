@@ -25,7 +25,7 @@ export default {
       format: 'iife',
       name: 'VueUsePopperjs',
       globals: {
-        vue: 'Vue',
+        'vue-demi': 'VueDemi',
         '@popperjs/core': 'Popper',
       },
     },
@@ -34,12 +34,12 @@ export default {
       format: 'iife',
       name: 'VueUsePopperjs',
       globals: {
-        vue: 'Vue',
+        'vue-demi': 'VueDemi',
         '@popperjs/core': 'Popper',
       },
       plugins: [terser()],
     },
   ],
-  external: ['vue', '@popperjs/core'],
+  external: ['vue-demi', '@popperjs/core'],
   plugins: [resolve(), typescript(), json(), babel({ babelHelpers: 'bundled', extensions: ['.ts'] })],
 }

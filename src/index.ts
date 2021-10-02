@@ -1,4 +1,4 @@
-import { nextTick, onMounted, onUnmounted, onUpdated, Ref, ref, unref, watchEffect } from 'vue'
+import { nextTick, onMounted, onUnmounted, onUpdated, Ref, ref, unref, watchEffect } from 'vue-demi'
 import { createPopper, Options, VirtualElement } from '@popperjs/core'
 
 export { version } from '../package.json'
