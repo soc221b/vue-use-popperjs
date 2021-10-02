@@ -1,7 +1,7 @@
 <template>
   <div>
     <div ref="popcorn" id="popcorn" aria-describedby="tooltip"></div>
-    <div ref="tooltip" id="tooltip" role="tooltip">
+    <div v-show="visible" ref="tooltip" id="tooltip" role="tooltip">
       My tooltip
       <div id="arrow" data-popper-arrow></div>
     </div>

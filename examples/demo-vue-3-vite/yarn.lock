@@ -575,10 +575,10 @@ vue-tsc@^0.0.24:
   dependencies:
     unzipper "0.10.11"
 
-vue-use-popperjs@^0.1.22:
-  version "0.1.22"
-  resolved "https://registry.yarnpkg.com/vue-use-popperjs/-/vue-use-popperjs-0.1.22.tgz#e30c47d86ab7a7980a53d158564a58e8aa330199"
-  integrity sha512-NjyrHnkIYPU6dSji+I/S5EdMv0FrT1AETjIxWFvI6xcfHfUHY5Z0iCH4LaQhxHS1sNOO3zWhVGv91vzP85tA/A==
+vue-use-popperjs@latest:
+  version "0.1.30"
+  resolved "https://registry.yarnpkg.com/vue-use-popperjs/-/vue-use-popperjs-0.1.30.tgz#c10f479b762eb232f39699c8c05a8f56fe49a2b5"
+  integrity sha512-xCwC77ZdtdZ1q10ocrMT0iXD4FOlO+KuTEMkvZ8IFOH1j7m9kbE6I0htxcDwLye0ppByG3NUxzYdQnjDf8V5Kg==
   dependencies:
     "@popperjs/core" "2"
     core-js "^3.9.1"

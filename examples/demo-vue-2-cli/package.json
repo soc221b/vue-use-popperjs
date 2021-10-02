@@ -9,7 +9,7 @@
   "dependencies": {
     "@vue/composition-api": "^1.2.2",
     "vue": "^2.6.12",
-    "vue-use-popperjs": "^0.1.22"
+    "vue-use-popperjs": "latest"
   },
   "devDependencies": {
     "@vue/cli-service": "~4.5.0",

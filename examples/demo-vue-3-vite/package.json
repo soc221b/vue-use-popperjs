@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "vue": "^3.0.5",
-    "vue-use-popperjs": "^0.1.22"
+    "vue-use-popperjs": "latest"
   },
   "devDependencies": {
     "@babel/types": "^7.15.6",
