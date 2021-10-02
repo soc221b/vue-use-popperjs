@@ -23,7 +23,7 @@ const configs = [];
 formats.forEach((format) => {
   const config = {
     input,
-    external: ["vue", "vue-demi"],
+    external: ["vue-demi"],
     plugins: [
       ts(),
       resolve(),
@@ -34,7 +34,6 @@ formats.forEach((format) => {
     ],
     output: {
       globals: {
-        vue: "Vue",
         "vue-demi": "VueDemi",
       },
       format,
