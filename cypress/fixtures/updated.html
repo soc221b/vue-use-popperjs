@@ -46,23 +46,27 @@
     <script src="/dist/umd/index.js"></script>
 
     <script>
-      const { createApp, ref } = Vue
-      const { usePopperjs } = VueUsePopperjs
+      const { createApp, ref } = Vue;
+      const { usePopperjs } = VueUsePopperjs;
 
       createApp({
         setup() {
-          const reference = ref()
-          const popper = ref()
+          const reference = ref();
+          const popper = ref();
 
-          usePopperjs(reference, popper, { trigger: 'hover', delayOnMouseover: 0, delayOnMouseout: 0 })
+          usePopperjs(reference, popper, {
+            trigger: "hover",
+            delayOnMouseover: 0,
+            delayOnMouseout: 0,
+          });
 
-          const isA = ref(true)
+          const isA = ref(true);
 
           return {
             reference,
             popper,
             isA,
-          }
+          };
         },
         template: `
           <button id="reference" v-if="isA" ref="reference">My button A</button>
@@ -71,7 +75,7 @@
 
           <button id="controller" @click="() => isA = !isA">{{ isA ? 'A' : 'B' }}</button>
           `,
-      }).mount('#app')
+      }).mount("#app");
     </script>
   </body>
 </html>

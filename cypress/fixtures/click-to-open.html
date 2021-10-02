@@ -46,26 +46,26 @@
     <script src="/dist/umd/index.js"></script>
 
     <script>
-      const { createApp, ref } = Vue
-      const { usePopperjs } = VueUsePopperjs
+      const { createApp, ref } = Vue;
+      const { usePopperjs } = VueUsePopperjs;
 
       createApp({
         setup() {
-          const reference = ref()
-          const popper = ref()
+          const reference = ref();
+          const popper = ref();
 
-          usePopperjs(reference, popper, { trigger: 'click-to-open' })
+          usePopperjs(reference, popper, { trigger: "click-to-open" });
 
           return {
             reference,
             popper,
-          }
+          };
         },
         template: `
           <button id="reference" ref="reference">My button</button>
           <div id="popper" ref="popper">My popper</div>
         `,
-      }).mount('#app')
+      }).mount("#app");
     </script>
   </body>
 </html>

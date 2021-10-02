@@ -51,21 +51,23 @@
     <script src="/dist/umd/index.js"></script>
 
     <script>
-      const { createApp, ref } = Vue
-      const { usePopperjs } = VueUsePopperjs
+      const { createApp, ref } = Vue;
+      const { usePopperjs } = VueUsePopperjs;
 
       createApp({
         setup() {
-          const reference = ref()
-          const popper = ref()
+          const reference = ref();
+          const popper = ref();
 
-          const { visible } = usePopperjs(reference, popper, { trigger: 'manual' })
+          const { visible } = usePopperjs(reference, popper, {
+            trigger: "manual",
+          });
 
           return {
             reference,
             popper,
             visible,
-          }
+          };
         },
         template: `
           <button id="reference" ref="reference">My button</button>
@@ -73,7 +75,7 @@
 
           <button id="controller" @click="() => visible = !visible">{{ !visible ? 'Open' : 'Close' }}</button>
         `,
-      }).mount('#app')
+      }).mount("#app");
     </script>
   </body>
 </html>

@@ -1,45 +1,67 @@
-/** @type {import('rollup').RollupOptions} */
+import path from "path";
+import rm from "rimraf";
+import ts from "rollup-plugin-typescript2";
+import { terser } from "rollup-plugin-terser";
+import resolve from "@rollup/plugin-node-resolve";
+import babel from "@rollup/plugin-babel";
+import { pascalCase } from "change-case";
 
-import rm from 'rimraf'
-import { terser } from 'rollup-plugin-terser'
-import typescript from 'rollup-plugin-typescript2'
-import json from '@rollup/plugin-json'
-import babel from '@rollup/plugin-babel'
-import resolve from '@rollup/plugin-node-resolve'
+rm.sync(resolvePackage("dist/**/*"));
 
-rm.sync('dist')
+const packageJson = require(resolvePackage("package.json"));
+const packageName = packageJson.name;
+const mainFilePath = "src/index.ts";
+const pascalCasePackageName = pascalCase(packageName);
+const input = resolvePackage(mainFilePath);
+const output = "index";
+const productionSuffix = "prod";
+const formats = ["es", "iife", "cjs"];
+if (process.env.DEVELOPMENT) formats.splice(2);
 
-export default {
-  input: 'src/index.ts',
-  output: [
-    {
-      file: 'dist/esm/index.js',
-      format: 'esm',
-    },
-    {
-      file: 'dist/cjs/index.js',
-      format: 'cjs',
-    },
-    {
-      file: 'dist/umd/index.js',
-      format: 'iife',
-      name: 'VueUsePopperjs',
+const configs = [];
+formats.forEach((format) => {
+  const config = {
+    input,
+    external: ["vue-demi"],
+    plugins: [
+      ts(),
+      resolve(),
+      babel({
+        babelHelpers: "bundled",
+        extensions: [".js", ".ts"],
+      }),
+    ],
+    output: {
       globals: {
-        'vue-demi': 'VueDemi',
-        '@popperjs/core': 'Popper',
+        "vue-demi": "VueDemi",
       },
+      format,
+      name: pascalCasePackageName,
+      extend: true,
+      exports: "auto",
     },
-    {
-      file: 'dist/umd/index.min.js',
-      format: 'iife',
-      name: 'VueUsePopperjs',
-      globals: {
-        'vue-demi': 'VueDemi',
-        '@popperjs/core': 'Popper',
-      },
-      plugins: [terser()],
+  };
+
+  configs.push({
+    ...config,
+    output: {
+      ...config.output,
+      file: resolvePackage(`dist/${output}.${format}.js`),
     },
-  ],
-  external: ['vue-demi', '@popperjs/core'],
-  plugins: [resolve(), typescript(), json(), babel({ babelHelpers: 'bundled', extensions: ['.ts'] })],
+  });
+
+  configs.push({
+    ...config,
+    plugins: [...config.plugins, terser()],
+    output: {
+      ...config.output,
+      file: resolvePackage(`dist/${output}.${format}.${productionSuffix}.js`),
+    },
+  });
+});
+
+export default configs;
+
+function resolvePackage(...paths) {
+  return path.resolve(__dirname, process.cwd(), ...paths);
 }

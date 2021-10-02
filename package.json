@@ -1,19 +1,25 @@
 {
   "name": "vue-use-popperjs",
   "version": "0.1.17",
-  "description": "Vue 2, 3 popper hook powered by @popperjs",
-  "types": "src/index.ts",
-  "main": "dist/cjs/index.js",
-  "main:umd": "dist/umd/index.min.js",
-  "module": "dist/esm/index.js",
-  "unpkg": "dist/umd/index.min.js",
   "engines": {
-    "node": ">=12"
+    "node": "^12.13.0 || ^14.15.0"
   },
+  "description": "Vue 2, 3 popper hook powered by @popperjs",
+  "main": "dist/index.cjs.prod.js",
+  "module": "dist/index.es.prod.js",
+  "unpkg": "dist/index.iife.prod.js",
+  "jsdelivr": "dist/index.iife.prod.js",
+  "types": "src/index.ts",
+  "repository": "git@github.com:iendeavor/vue-use-popperjs.git",
+  "home": "https://github.com/iendeavor/vue-use-popperjs",
+  "bugs": {
+    "url": "https://github.com/iendeavor/vue-use-popperjs/issues"
+  },
+  "author": "Ernest <iendeavor.github.io@gmail.com>",
+  "license": "MIT",
   "files": [
-    "index.d.ts",
-    "/src",
-    "/dist"
+    "src",
+    "dist"
   ],
   "keywords": [
     "tooltip",
@@ -23,31 +29,35 @@
     "popper",
     "positioning engine"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iendeavor/vue-use-popperjs.git"
-  },
-  "bugs": {
-    "url": "https://github.com/iendeavor/vue-use-popperjs/issues"
-  },
-  "homepage": "https://iendeavor.github.io/vue-use-popperjs",
-  "author": {
-    "name": "Ernest",
-    "email": "iendeavor.github.io@gmail.com",
-    "url": "https://github.com/iendeavor"
-  },
-  "license": "MIT",
   "scripts": {
-    "build": "rollup -c rollup.config.js",
-    "lint": "prettier --check .",
-    "test": "cypress run",
-    "prepublish": "yarn build",
-    "prepare": "husky install"
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@popperjs/core": "2",
     "core-js": "^3.9.1",
     "vue-demi": "latest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.4",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@types/jest": "^27",
+    "@types/node": "^16.7.5",
+    "change-case": "^4.1.2",
+    "conventional-changelog-cli": "^2.1.1",
+    "husky": "^7.0.2",
+    "jest": "^27",
+    "prettier": "^2.3.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.56.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "ts-jest": "^27",
+    "typescript": "^4",
+    "vue": "^3.2"
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.1.5",
@@ -57,23 +67,5 @@
     "@vue/composition-api": {
       "optional": true
     }
-  },
-  "devDependencies": {
-    "@babel/core": "^7.13.13",
-    "@babel/preset-env": "^7.13.12",
-    "@commitlint/cli": "^12.0.1",
-    "@commitlint/config-conventional": "^12.0.1",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^11.2.1",
-    "cypress": "^6.8.0",
-    "husky": "^5.2.0",
-    "prettier": "^2.2.1",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.42.3",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.30.0",
-    "typescript": "^4.2.3",
-    "vue": "^3.2"
   }
 }
