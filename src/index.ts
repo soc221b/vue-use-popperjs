@@ -44,10 +44,10 @@ function off(
 }
 
 export function usePopperjs(
-  reference: MaybeRef<Element | VirtualElement>,
-  popper: MaybeRef<HTMLElement>,
+  reference: MaybeRef<Parameters<typeof createPopper>["0"]>,
+  popper: MaybeRef<Parameters<typeof createPopper>["1"]>,
   options?: Partial<
-    Options &
+    Parameters<typeof createPopper>["2"] &
       EventOptions & {
         trigger: Trigger;
         delayOnMouseover: number;
