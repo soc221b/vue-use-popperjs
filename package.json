@@ -30,7 +30,9 @@
     "positioning engine"
   ],
   "scripts": {
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "dependencies": {
     "@popperjs/core": "2",
@@ -50,6 +52,7 @@
     "conventional-changelog-cli": "^2.1.1",
     "husky": "^7.0.2",
     "jest": "^27",
+    "pinst": "^2.1.6",
     "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.56.3",
