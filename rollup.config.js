@@ -4,6 +4,7 @@ import ts from "rollup-plugin-typescript2";
 import { terser } from "rollup-plugin-terser";
 import resolve from "@rollup/plugin-node-resolve";
 import babel from "@rollup/plugin-babel";
+import replace from "rollup-plugin-replace";
 import { pascalCase } from "change-case";
 
 rm.sync(resolvePackage("dist/**/*"));
@@ -22,7 +23,7 @@ const configs = [];
 formats.forEach((format) => {
   const config = {
     input,
-    external: ["vue-demi"],
+    external: ["vue"],
     plugins: [
       ts(),
       resolve(),
@@ -33,7 +34,7 @@ formats.forEach((format) => {
     ],
     output: {
       globals: {
-        "vue-demi": "VueDemi",
+        vue: "Vue",
       },
       format,
       name: pascalCasePackageName,
@@ -44,6 +45,12 @@ formats.forEach((format) => {
 
   configs.push({
     ...config,
+    plugins: [
+      ...config.plugins,
+      replace({
+        "process.env.NODE_ENV": "'development'",
+      }),
+    ],
     output: {
       ...config.output,
       file: resolvePackage(`dist/${output}.${format}.js`),
@@ -52,7 +59,13 @@ formats.forEach((format) => {
 
   configs.push({
     ...config,
-    plugins: [...config.plugins, terser()],
+    plugins: [
+      ...config.plugins,
+      replace({
+        "process.env.NODE_ENV": "'production'",
+      }),
+      terser(),
+    ],
     output: {
       ...config.output,
       file: resolvePackage(`dist/${output}.${format}.${productionSuffix}.js`),
