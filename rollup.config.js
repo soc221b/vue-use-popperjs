@@ -5,6 +5,7 @@ import { terser } from "rollup-plugin-terser";
 import resolve from "@rollup/plugin-node-resolve";
 import babel from "@rollup/plugin-babel";
 import replace from "rollup-plugin-replace";
+import vue from "rollup-plugin-vue";
 import { pascalCase } from "change-case";
 
 rm.sync(resolvePackage("dist/**/*"));
@@ -26,6 +27,7 @@ formats.forEach((format) => {
     external: ["vue-demi"],
     plugins: [
       ts(),
+      vue(),
       resolve(),
       babel({
         babelHelpers: "bundled",
