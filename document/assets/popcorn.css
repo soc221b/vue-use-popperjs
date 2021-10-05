@@ -1,42 +1,18 @@
-<template>
-  <div id="root">
-    <div ref="popcorn" id="popcorn" aria-describedby="tooltip"></div>
-    <div v-show="visible" ref="tooltip" id="tooltip" role="tooltip">
-      My tooltip
-      <div id="arrow" data-popper-arrow></div>
-    </div>
-  </div>
-</template>
+input,
+button {
+  margin-bottom: 8px;
+}
 
-<script lang="ts">
-import { defineComponent, ref } from "@vue/composition-api";
-import { usePopperjs } from "vue-use-popperjs";
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
 
-export default defineComponent({
-  setup() {
-    const popcorn = ref();
-    const tooltip = ref();
-    const { visible } = usePopperjs(popcorn, tooltip, {
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 8],
-          },
-        },
-      ],
-    });
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 
-    return {
-      popcorn,
-      tooltip,
-      visible,
-    };
-  },
-});
-</script>
-
-<style>
 #root {
   background-color: #30263d;
   font-family: -apple-system, Helvetica Neue, Segoe UI, Roboto, Oxygen, Ubuntu,
@@ -98,4 +74,3 @@ export default defineComponent({
 [data-popper-placement^="right"] #arrow {
   left: -4px;
 }
-</style>

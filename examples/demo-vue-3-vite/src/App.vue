@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="root">
     <div ref="popcorn" id="popcorn" aria-describedby="tooltip"></div>
     <div v-show="visible" ref="tooltip" id="tooltip" role="tooltip">
       My tooltip
@@ -16,9 +16,7 @@ export default defineComponent({
   setup() {
     const popcorn = ref();
     const tooltip = ref();
-    const { instance, visible } = usePopperjs(popcorn, tooltip, {
-      trigger: "hover",
-      placement: "top",
+    const { visible } = usePopperjs(popcorn, tooltip, {
       modifiers: [
         {
           name: "offset",
@@ -39,12 +37,15 @@ export default defineComponent({
 </script>
 
 <style>
-body {
+#root {
   background-color: #30263d;
   font-family: -apple-system, Helvetica Neue, Segoe UI, Roboto, Oxygen, Ubuntu,
     Cantarell, Open Sans, sans-serif;
   text-transform: uppercase;
-  padding: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
 }
 
 #popcorn {
@@ -82,19 +83,19 @@ body {
   transform: rotate(45deg);
 }
 
-#tooltip[data-popper-placement^="top"] > #arrow {
+[data-popper-placement^="top"] #arrow {
   bottom: -4px;
 }
 
-#tooltip[data-popper-placement^="bottom"] > #arrow {
+[data-popper-placement^="bottom"] #arrow {
   top: -4px;
 }
 
-#tooltip[data-popper-placement^="left"] > #arrow {
+[data-popper-placement^="left"] #arrow {
   right: -4px;
 }
 
-#tooltip[data-popper-placement^="right"] > #arrow {
+[data-popper-placement^="right"] #arrow {
   left: -4px;
 }
 </style>
