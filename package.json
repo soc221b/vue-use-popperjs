@@ -1,6 +1,7 @@
 {
   "name": "vue-use-popperjs",
   "version": "1.1.1",
+  "sideEffects": false,
   "engines": {
     "node": "^12.13.0 || ^14.15.0"
   },
