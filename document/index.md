@@ -1,25 +1,77 @@
-<script setup>
-import ComponentExample from './components/component-example.vue'
-import HookExample from './components/hook-example.vue'
-import "./assets/popcorn.css";
-</script>
-
-# Hello VitePress
+# Getting Started
 
 ## Installation
 
+For vue@3:
+
 ```shell
-yarn add vue-use-popperjs
+$ yarn add vue-use-popperjs
 ```
 
-## With Component
+For vue@2 + @vue/composition-api
 
-<ComponentExample/>
+```shell
+$ yarn add vue-use-popperjs @vue/composition-api
+```
 
-<<< @/components/component-example.vue
+## Usage
 
-## With Hook
+### Component
 
-<HookExample/>
+```html
+<template>
+  <div id="root">
+    <Popper popper-id="popcorn" reference-id="tooltip" :modifiers="modifiers">
+      <template #reference>
+        My tooltip
+        <div id="arrow" data-popper-arrow></div>
+      </template>
+    </Popper>
+  </div>
+</template>
 
-<<< @/components/hook-example.vue
+<script setup lang="ts">
+  import { Popper } from "vue-use-popperjs";
+
+  const modifiers = [
+    {
+      name: "offset",
+      options: {
+        offset: [0, 8],
+      },
+    },
+  ];
+</script>
+```
+
+### Hook
+
+```html
+<template>
+  <div id="root">
+    <div ref="popcorn" id="popcorn" aria-describedby="tooltip"></div>
+    <div v-show="visible" ref="tooltip" id="tooltip" role="tooltip">
+      My tooltip
+      <div id="arrow" data-popper-arrow></div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+  import { ref } from "vue";
+  import { usePopperjs } from "../../src";
+
+  const popcorn = ref();
+  const tooltip = ref();
+  const { visible } = usePopperjs(popcorn, tooltip, {
+    modifiers: [
+      {
+        name: "offset",
+        options: {
+          offset: [0, 8],
+        },
+      },
+    ],
+  });
+</script>
+```

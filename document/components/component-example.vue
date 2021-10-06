@@ -1,40 +1,47 @@
 <template>
-  <div id="root">
-    <Popper :modifiers="modifiers">
-      <div id="popcorn"></div>
+  <button @click="() => (disabled = !disabled)">
+    Disabled: {{ disabled }}
+  </button>
+  <br />
+  <button @click="() => (teleportToBody = !teleportToBody)">
+    Teleport to body: {{ teleportToBody }}
+  </button>
+  <br />
+  <button @click="() => (useTransition = !useTransition)">
+    Use fade transition: {{ useTransition }}
+  </button>
 
+  <div id="root">
+    <Popper
+      :disabled="disabled"
+      popper-id="popcorn"
+      reference-id="tooltip"
+      trigger="click-to-toggle"
+      :teleport-props="teleportToBody ? { to: 'body' } : undefined"
+      :transition-props="useTransition ? { name: 'fade' } : undefined"
+      :modifiers="modifiers"
+    >
       <template #reference>
-        <div id="tooltip">
-          My tooltip
-          <div id="arrow" data-popper-arrow></div>
-        </div>
+        My tooltip
+        <div id="arrow" data-popper-arrow></div>
       </template>
     </Popper>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import { Popper } from "../..";
+<script setup lang="ts">
+import { ref } from "vue";
+import { Popper } from "../../src";
 
-export default defineComponent({
-  components: {
-    Popper,
+const disabled = ref(false);
+const teleportToBody = ref(false);
+const useTransition = ref(false);
+const modifiers = [
+  {
+    name: "offset",
+    options: {
+      offset: [0, 8],
+    },
   },
-
-  setup() {
-    const modifiers = [
-      {
-        name: "offset",
-        options: {
-          offset: [0, 8],
-        },
-      },
-    ];
-
-    return {
-      modifiers,
-    };
-  },
-});
+];
 </script>
