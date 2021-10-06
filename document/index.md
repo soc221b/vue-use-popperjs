@@ -1,25 +1,25 @@
-<script setup>
-import ComponentExample from './components/component-example.vue'
-import HookExample from './components/hook-example.vue'
-import "./assets/popcorn.css";
-</script>
-
-# Hello VitePress
+# Getting Started
 
 ## Installation
 
+For vue@3:
+
 ```shell
-yarn add vue-use-popperjs
+$ yarn add vue-use-popperjs
 ```
 
-## With Component
+For vue@2 + @vue/composition-api
 
-<ComponentExample/>
+```shell
+$ yarn add vue-use-popperjs @vue/composition-api
+```
 
-<<< @/components/component-example.vue
+## Usage
 
-## With Hook
+### Component
 
-<HookExample/>
+<<< @/snippets/basic-component.vue
 
-<<< @/components/hook-example.vue
+### Hook
+
+<<< @/snippets/basic-hook.vue

@@ -4,7 +4,7 @@
   "engines": {
     "node": "^12.13.0 || ^14.15.0"
   },
-  "description": "Vue 2, 3 popper hook powered by @popperjs",
+  "description": "Vue 2, 3 popper solution powered by @popperjs",
   "main": "dist/index.cjs.prod.js",
   "module": "dist/index.es.prod.js",
   "unpkg": "dist/index.iife.prod.js",
