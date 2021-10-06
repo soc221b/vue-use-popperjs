@@ -1,25 +1,33 @@
-<script setup>
-import ComponentExample from './components/component-example.vue'
-import HookExample from './components/hook-example.vue'
-import "./assets/popcorn.css";
-</script>
+# Getting Started
 
-# Hello VitePress
+Vue-popper-js is complete popper solution powered by [@popperjs](https://popper.js.org/).
+
+## Features
+
+- Works for both Vue **3** and **2**
+- Popover component, with built-in support for [**Component**](https://v3.vuejs.org/api/built-in-components.html#component), [**Teleport**](https://v3.vuejs.org/api/built-in-components.html#teleport), and [**Transition**](https://v3.vuejs.org/api/built-in-components.html#transition)
+- Built custom popover with **hook function**
 
 ## Installation
 
+For vue@3:
+
 ```shell
-yarn add vue-use-popperjs
+$ yarn add vue-use-popperjs
 ```
 
-## With Component
+For vue@2 + @vue/composition-api
 
-<ComponentExample/>
+```shell
+$ yarn add vue-use-popperjs @vue/composition-api
+```
 
-<<< @/components/component-example.vue
+## Usage
 
-## With Hook
+### Component
 
-<HookExample/>
+<<< @/snippets/basic-component.vue
 
-<<< @/components/hook-example.vue
+### Hook
+
+<<< @/snippets/basic-hook.vue

@@ -16,7 +16,7 @@ export default defineComponent({
   setup() {
     const popcorn = ref();
     const tooltip = ref();
-    const { instance, visible } = usePopperjs(popcorn, tooltip, {
+    const { visible } = usePopperjs(popcorn, tooltip, {
       trigger: "hover",
       placement: "top",
       modifiers: [
