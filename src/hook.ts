@@ -8,7 +8,7 @@ import {
   unref,
   watch,
 } from "vue-demi";
-import { createPopper, Options } from "@popperjs/core";
+import { createPopper } from "@popperjs/core";
 
 export type MaybeRef<T> = T | Ref<T>;
 
@@ -107,11 +107,12 @@ export function usePopperjs(
     }
   );
   const concrete = () => {
-    instance.value = createPopper(
-      referenceRef.value!,
-      popperRef.value!,
-      options as Options
-    );
+    instance.value = createPopper(referenceRef.value!, popperRef.value!, {
+      placement: options?.placement ?? "bottom",
+      modifiers: options?.modifiers ?? [],
+      strategy: options?.strategy ?? "absolute",
+      onFirstUpdate: options?.onFirstUpdate ?? undefined,
+    });
   };
   const destroy = () => {
     instance.value?.destroy();
