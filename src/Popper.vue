@@ -1,48 +1,107 @@
 <template>
-  <div ref="popper" class="popper" :aria-describedby="role">
+  <component
+    :is="popperIs"
+    ref="popper"
+    :id="popperId"
+    class="popper"
+    :class="popperClass"
+    :aria-describedby="role"
+  >
     <slot />
-  </div>
+  </component>
 
-  <div v-show="visible" ref="reference" class="reference" :role="role">
-    <slot name="reference" />
-  </div>
+  <MaybeTeleportVue :teleport-props="teleportProps">
+    <MaybeTransition :transition-props="transitionProps">
+      <component
+        :is="referenceIs"
+        v-show="visible"
+        :id="referenceId"
+        ref="reference"
+        class="reference"
+        :class="referenceClass"
+        :role="role"
+      >
+        <slot name="reference" />
+      </component>
+    </MaybeTransition>
+  </MaybeTeleportVue>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import {
-  defineComponent,
   getCurrentInstance,
   ref,
   computed,
+  watch,
   PropType,
+  TeleportProps,
+  TransitionProps,
 } from "vue-demi";
 import { usePopperjs } from "./hook";
+import MaybeTeleportVue from "./MaybeTeleport.vue";
+import MaybeTransition from "./MaybeTransition.vue";
 
-export default defineComponent({
-  props: {
-    modifiers: {
-      type: Array as PropType<
-        Required<Parameters<typeof usePopperjs>>["2"]["modifiers"]
-      >,
-    },
+const props = defineProps({
+  // hook options
+  delayOnMouseout: Number,
+  delayOnMouseover: Number,
+  trigger: String as PropType<
+    Exclude<Required<Parameters<typeof usePopperjs>>["2"]["trigger"], "manual">
+  >,
+  forceShow: Boolean,
+  modifiers: Array as PropType<
+    Required<Parameters<typeof usePopperjs>>["2"]["modifiers"]
+  >,
+  onFirstUpdate: Function as PropType<
+    Required<Parameters<typeof usePopperjs>>["2"]["onFirstUpdate"]
+  >,
+  placement: String as PropType<
+    Required<Parameters<typeof usePopperjs>>["2"]["placement"]
+  >,
+  strategy: String as PropType<
+    Required<Parameters<typeof usePopperjs>>["2"]["strategy"]
+  >,
+
+  // component props
+  popperIs: {
+    default: "div",
+    type: String,
   },
-
-  setup(props) {
-    const instance = getCurrentInstance();
-    const popper = ref();
-    const reference = ref();
-    const { visible } = usePopperjs(popper, reference, props);
-
-    const role = computed(() =>
-      visible.value ? "reference-" + instance?.uid : undefined
-    );
-
-    return {
-      popper,
-      reference,
-      visible,
-      role,
-    };
+  popperId: String,
+  popperClass: String,
+  referenceIs: {
+    default: "div",
+    type: String,
   },
+  referenceId: String,
+  referenceClass: String,
+  disabled: Boolean,
+  teleportProps: Object as PropType<TeleportProps>,
+  transitionProps: Object as PropType<TransitionProps>,
 });
+
+const emit = defineEmits(["show", "hide"]);
+
+const instance = getCurrentInstance();
+const popper = ref();
+const reference = ref();
+const { visible } = usePopperjs(popper, reference, {
+  ...props,
+  onShow: () => emit("show"),
+  onHide: () => emit("hide"),
+});
+
+watch(
+  () => [visible.value, props.disabled],
+  () => {
+    if (props.disabled && visible.value) {
+      visible.value = false;
+    }
+  },
+  { flush: "sync" }
+);
+
+const role = computed(() =>
+  visible.value ? "reference-" + instance?.uid : undefined
+);
 </script>
