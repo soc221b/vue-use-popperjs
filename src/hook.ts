@@ -49,7 +49,7 @@ export function usePopperjs(
   options?: Partial<
     Parameters<typeof createPopper>["2"] &
       EventOptions & {
-        trigger: Trigger;
+        trigger: MaybeRef<Trigger | undefined>;
         delayOnMouseover: number;
         delayOnMouseout: number;
         forceShow: boolean;
@@ -124,7 +124,7 @@ export function usePopperjs(
   const doOpen = () => (visible.value = true);
   const doClose = () => (visible.value = false);
   watch(
-    () => [instance.value],
+    () => [instance.value, unref(options?.trigger)],
     () => {
       if (!instance.value) return;
 
@@ -163,7 +163,7 @@ export function usePopperjs(
   const doOn = () => {
     doOff();
 
-    switch (options?.trigger ?? "hover") {
+    switch (unref(options?.trigger) ?? "hover") {
       case "click-to-open": {
         on(referenceRef.value!, "click", doOpen);
         on(document as any, "click", doCloseForDocument);
