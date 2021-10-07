@@ -23,7 +23,7 @@ const configs = [];
 formats.forEach((format) => {
   const config = {
     input,
-    external: ["vue-demi"],
+    external: ["vue"],
     plugins: [
       ts(),
       resolve(),
@@ -34,7 +34,7 @@ formats.forEach((format) => {
     ],
     output: {
       globals: {
-        "vue-demi": "VueDemi",
+        vue: "Vue",
       },
       format,
       name: pascalCasePackageName,
