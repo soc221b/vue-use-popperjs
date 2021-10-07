@@ -32,6 +32,17 @@ $ yarn add vue-use-popperjs @vue/composition-api
 
 <<< @/snippets/basic-hook.vue
 
+::: tip
+Vue-use-popperjs automatically add `.vue-use-popperjs-none` class when popper is hidden, you can add following css to hide poppers:
+
+```css
+.vue-use-popperjs-none {
+  visibility: hidden;
+}
+```
+
+:::
+
 ### Component
 
 <<< @/snippets/basic-component.vue

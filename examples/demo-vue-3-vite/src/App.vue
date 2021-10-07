@@ -1,7 +1,7 @@
 <template>
   <div id="root">
     <div ref="popcorn" id="popcorn" aria-describedby="tooltip"></div>
-    <div v-show="visible" ref="tooltip" id="tooltip" role="tooltip">
+    <div ref="tooltip" id="tooltip" role="tooltip">
       My tooltip
       <div id="arrow" data-popper-arrow></div>
     </div>
@@ -16,7 +16,7 @@ export default defineComponent({
   setup() {
     const popcorn = ref();
     const tooltip = ref();
-    const { visible } = usePopperjs(popcorn, tooltip, {
+    usePopperjs(popcorn, tooltip, {
       modifiers: [
         {
           name: "offset",
@@ -30,7 +30,6 @@ export default defineComponent({
     return {
       popcorn,
       tooltip,
-      visible,
     };
   },
 });
@@ -63,6 +62,10 @@ export default defineComponent({
   padding: 5px 10px;
   font-size: 13px;
   border-radius: 4px;
+}
+
+#tooltip.vue-use-popperjs-none {
+  visibility: hidden;
 }
 
 #arrow,

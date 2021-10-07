@@ -13,7 +13,7 @@
 
   <div id="root">
     <div ref="popcorn" id="popcorn" aria-describedby="tooltip"></div>
-    <div v-show="visible" ref="tooltip" id="tooltip" role="tooltip">
+    <div ref="tooltip" id="tooltip" role="tooltip">
       My tooltip
       <div id="arrow" data-popper-arrow></div>
     </div>
@@ -29,7 +29,7 @@ export default defineComponent({
     const popcorn = ref();
     const tooltip = ref();
     const trigger = ref<Trigger>("hover");
-    const { visible } = usePopperjs(popcorn, tooltip, {
+    usePopperjs(popcorn, tooltip, {
       trigger,
       modifiers: [
         {
@@ -45,8 +45,14 @@ export default defineComponent({
       popcorn,
       tooltip,
       trigger,
-      visible,
     };
   },
 });
 </script>
+
+<style scoped>
+#tooltip.vue-use-popperjs-none,
+#tooltip.vue-use-popperjs-none #arrow::before {
+  visibility: hidden;
+}
+</style>
