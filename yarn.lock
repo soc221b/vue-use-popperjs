@@ -1629,7 +1629,7 @@
     "@vue/compiler-core" "3.2.19"
     "@vue/shared" "3.2.19"
 
-"@vue/compiler-sfc@3.2.19", "@vue/compiler-sfc@^3.2.19":
+"@vue/compiler-sfc@3.2.19":
   version "3.2.19"
   resolved "https://registry.yarnpkg.com/@vue/compiler-sfc/-/compiler-sfc-3.2.19.tgz#d412195a98ebd49b84602f171719294a1d9549be"
   integrity sha512-pLlbgkO1UHTO02MSpa/sFOXUwIDxSMiKZ1ozE5n71CY4DM+YmI+G3gT/ZHZ46WBId7f3VTF/D8pGwMygcQbrQA==
@@ -3347,11 +3347,6 @@ has@^1.0.3:
   integrity sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==
   dependencies:
     function-bind "^1.1.1"
-
-hash-sum@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/hash-sum/-/hash-sum-2.0.0.tgz#81d01bb5de8ea4a214ad5d6ead1b523460b0b45a"
-  integrity sha512-WdZTbAByD+pHfl/g9QSsBIIwy8IT+EsPiKDs0KNX+zSHhdDLFKdZu0BQHljvO+0QI/BasbMSUa8wYNCZTvhslg==
 
 header-case@^2.0.4:
   version "2.0.4"
@@ -5095,16 +5090,7 @@ rollup-plugin-typescript2@^0.30.0:
     resolve "1.20.0"
     tslib "2.1.0"
 
-rollup-plugin-vue@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-vue/-/rollup-plugin-vue-6.0.0.tgz#e379e93e5ae9a8648522f698be2e452e8672aaf2"
-  integrity sha512-oVvUd84d5u73M2HYM3XsMDLtZRIA/tw2U0dmHlXU2UWP5JARYHzh/U9vcxaN/x/9MrepY7VH3pHFeOhrWpxs/Q==
-  dependencies:
-    debug "^4.1.1"
-    hash-sum "^2.0.0"
-    rollup-pluginutils "^2.8.2"
-
-rollup-pluginutils@^2.6.0, rollup-pluginutils@^2.8.2:
+rollup-pluginutils@^2.6.0:
   version "2.8.2"
   resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.8.2.tgz#72f2af0748b592364dbd3389e600e5a9444a351e"
   integrity sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==
