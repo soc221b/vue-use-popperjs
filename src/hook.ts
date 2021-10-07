@@ -7,7 +7,7 @@ import {
   ref,
   unref,
   watch,
-} from "vue-demi";
+} from "vue";
 import { createPopper } from "@popperjs/core";
 
 export type MaybeRef<T> = T | Ref<T>;
