@@ -30,7 +30,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { Popper } from "../../src"; // ... from "vue-use-popperjs"
+import { Popper } from "../.."; // ... from "vue-use-popperjs"
 
 export default defineComponent({
   components: {

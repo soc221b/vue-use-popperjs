@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { usePopperjs, Trigger } from "../../src"; // ... from "vue-use-popperjs"
+import { usePopperjs, Trigger } from "../.."; // ... from "vue-use-popperjs"
 
 export default defineComponent({
   setup() {
