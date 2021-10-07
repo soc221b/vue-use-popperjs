@@ -53,14 +53,15 @@
         setup() {
           const reference = ref();
           const popper = ref();
-
+          const trigger = ref("hover");
           usePopperjs(reference, popper, {
-            trigger: "hover",
-            delayOnMouseover: 200,
-            delayOnMouseout: 200,
+            trigger,
+            delayOnMouseover: 0,
+            delayOnMouseout: 0,
           });
 
           return {
+            trigger,
             reference,
             popper,
           };
@@ -68,7 +69,9 @@
         template: `
           <button id="reference" ref="reference">My button</button>
           <div id="popper" ref="popper">My popper</div>
-        `,
+
+          <button id="controller" @click="() => trigger = trigger === 'hover' ? 'click-to-toggle' : 'hover'">{{ trigger }}</button>
+          `,
       }).mount("#app");
     </script>
   </body>
