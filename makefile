@@ -18,7 +18,7 @@ clean:
 	rm -rf /dist
 
 release:
-	yarn conventional-changelog -p angular -i CHANGELOG.md -s
+	yarn standard-version
 
 install-examples:
 	node scripts/walk examples yarn install
