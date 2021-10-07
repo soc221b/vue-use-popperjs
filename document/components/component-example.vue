@@ -28,19 +28,34 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref } from "vue";
-import { Popper } from "../../src";
+<script lang="ts">
+import { defineComponent, ref } from "vue";
+import { Popper } from "../../src"; // ... from "vue-use-popperjs"
 
-const disabled = ref(false);
-const teleportToBody = ref(false);
-const useTransition = ref(false);
-const modifiers = [
-  {
-    name: "offset",
-    options: {
-      offset: [0, 8],
-    },
+export default defineComponent({
+  components: {
+    Popper,
   },
-];
+
+  setup() {
+    const disabled = ref(false);
+    const teleportToBody = ref(true);
+    const useTransition = ref(true);
+    const modifiers = [
+      {
+        name: "offset",
+        options: {
+          offset: [0, 8],
+        },
+      },
+    ];
+
+    return {
+      disabled,
+      teleportToBody,
+      useTransition,
+      modifiers,
+    };
+  },
+});
 </script>

@@ -20,22 +20,33 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref } from "vue";
-import { usePopperjs, Trigger } from "../../src";
+<script lang="ts">
+import { defineComponent, ref } from "vue";
+import { usePopperjs, Trigger } from "../../src"; // ... from "vue-use-popperjs"
 
-const popcorn = ref();
-const tooltip = ref();
-const trigger = ref<Trigger>("hover");
-const { visible } = usePopperjs(popcorn, tooltip, {
-  trigger,
-  modifiers: [
-    {
-      name: "offset",
-      options: {
-        offset: [0, 8],
-      },
-    },
-  ],
+export default defineComponent({
+  setup() {
+    const popcorn = ref();
+    const tooltip = ref();
+    const trigger = ref<Trigger>("hover");
+    const { visible } = usePopperjs(popcorn, tooltip, {
+      trigger,
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, 8],
+          },
+        },
+      ],
+    });
+
+    return {
+      popcorn,
+      tooltip,
+      trigger,
+      visible,
+    };
+  },
 });
 </script>

@@ -4,7 +4,7 @@ import HookExample from './components/hook-example.vue'
 import "./assets/popcorn.css";
 </script>
 
-# Hello VitePress
+# Examples
 
 ## Installation
 

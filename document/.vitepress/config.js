@@ -1,7 +1,7 @@
 module.exports = {
   base: "/vue-use-popperjs/",
   lang: "en-US",
-  title: "VitePress",
+  title: "Vue-use-popperjs",
   description: "Vue 2, 3 popper solution powered by @popperjs",
 
   themeConfig: {
