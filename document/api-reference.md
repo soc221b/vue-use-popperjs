@@ -6,7 +6,7 @@
 function usePopperjs(
   reference: MaybeRef<Element | VirtualElement>,
   popper: MaybeRef<HTMLElement>,
-  options: {
+  options: MaybeRef<{
     // The Popperjs options
     placement?: Placement; // default: "bottom"
     modifiers?: Array<TModifier>; // default: []
@@ -20,7 +20,7 @@ function usePopperjs(
     forceShow?: boolean; // default: false
     onShow?: Function;
     onHide?: Function;
-  }
+  }>
 ): {
   // The Popperjs instance
   instance: Instance;
