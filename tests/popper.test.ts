@@ -1,15 +1,11 @@
 import { defineComponent } from "vue";
 import { mount } from "@vue/test-utils";
-// @ts-ignore
-import { Popper, popperUid } from "..";
+import { Popper } from "..";
 
 const waitForShowPopper = () =>
   new Promise((resolve) => setTimeout(resolve, 1000));
 
 beforeEach(() => {
-  // @ts-ignore
-  popperUid = 0;
-
   // create teleport target
   const el = document.createElement("div");
   el.id = "modal";

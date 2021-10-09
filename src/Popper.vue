@@ -37,8 +37,7 @@ import { usePopperjs } from "./hook";
 import MaybeTeleport from "./MaybeTeleport.vue";
 import MaybeTransition from "./MaybeTransition.vue";
 
-// expose for test
-export let popperUid = 0;
+let popperUid = 0;
 
 export default defineComponent({
   components: {
