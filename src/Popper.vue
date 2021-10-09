@@ -26,7 +26,6 @@
 <script lang="ts">
 import {
   defineComponent,
-  getCurrentInstance,
   ref,
   computed,
   watch,
@@ -37,6 +36,9 @@ import {
 import { usePopperjs } from "./hook";
 import MaybeTeleport from "./MaybeTeleport.vue";
 import MaybeTransition from "./MaybeTransition.vue";
+
+// expose for test
+export let popperUid = 0;
 
 export default defineComponent({
   components: {
@@ -91,7 +93,6 @@ export default defineComponent({
   emits: ["show", "hide"],
 
   setup(props, { emit }) {
-    const instance = getCurrentInstance();
     const reference = ref();
     const popper = ref();
     const { visible } = usePopperjs(reference, popper, {
@@ -111,11 +112,10 @@ export default defineComponent({
     );
 
     const role = computed(() =>
-      visible.value ? "popper-" + instance?.uid : undefined
+      visible.value ? "vue-use-popperjs-" + popperUid++ : undefined
     );
 
     return {
-      instance,
       visible,
       reference,
       popper,
