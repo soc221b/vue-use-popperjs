@@ -1,23 +1,23 @@
 <template>
   <component
-    :is="popperIs"
-    v-bind="popperProps"
-    ref="popper"
+    :is="referenceIs"
+    v-bind="referenceProps"
+    ref="reference"
     :aria-describedby="role"
   >
-    <slot />
+    <slot name="reference" />
   </component>
 
   <MaybeTeleport :teleport-props="teleportProps">
     <MaybeTransition :transition-props="transitionProps">
       <component
         v-show="visible"
-        :is="referenceIs"
-        v-bind="referenceProps"
-        ref="reference"
+        :is="popperIs"
+        v-bind="popperProps"
+        ref="popper"
         :role="role"
       >
-        <slot name="reference" />
+        <slot />
       </component>
     </MaybeTransition>
   </MaybeTeleport>
@@ -92,9 +92,9 @@ export default defineComponent({
 
   setup(props, { emit }) {
     const instance = getCurrentInstance();
-    const popper = ref();
     const reference = ref();
-    const { visible } = usePopperjs(popper, reference, {
+    const popper = ref();
+    const { visible } = usePopperjs(reference, popper, {
       ...props,
       onShow: () => emit("show"),
       onHide: () => emit("hide"),
@@ -111,14 +111,14 @@ export default defineComponent({
     );
 
     const role = computed(() =>
-      visible.value ? "reference-" + instance?.uid : undefined
+      visible.value ? "popper-" + instance?.uid : undefined
     );
 
     return {
       instance,
       visible,
-      popper,
       reference,
+      popper,
       role,
     };
   },

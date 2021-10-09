@@ -14,16 +14,14 @@
   <div id="root">
     <Popper
       :disabled="disabled"
-      :popper-props="{ id: 'popcorn' }"
-      :reference-props="{ id: 'tooltip' }"
+      :reference-props="{ id: 'popcorn' }"
+      :popper-props="{ id: 'tooltip' }"
       :teleport-props="teleportToBody ? { to: 'body' } : undefined"
       :transition-props="useTransition ? { name: 'fade' } : undefined"
       :modifiers="modifiers"
     >
-      <template #reference>
-        My tooltip
-        <div id="arrow" data-popper-arrow></div>
-      </template>
+      My tooltip
+      <div id="arrow" data-popper-arrow></div>
     </Popper>
   </div>
 </template>

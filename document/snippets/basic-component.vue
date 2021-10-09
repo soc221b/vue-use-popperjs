@@ -1,13 +1,11 @@
 <template>
   <Popper
-    :popper-props="{ id: 'popcorn' }"
-    :reference-props="{ id: 'tooltip' }"
+    :reference-props="{ id: 'popcorn' }"
+    :popper-props="{ id: 'tooltip' }"
     :modifiers="modifiers"
   >
-    <template #reference>
-      My tooltip
-      <div id="arrow" data-popper-arrow></div>
-    </template>
+    My tooltip
+    <div id="arrow" data-popper-arrow></div>
   </Popper>
 </template>
 

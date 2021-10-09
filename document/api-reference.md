@@ -45,10 +45,10 @@ type props = {
   forceShow?: boolean; // default: false
 
   // Extra props
-  popperIs?: string; // default: "div"
-  popperProps?: Object;
   referenceIs?: string; // default: "div"
   referenceProps?: Object;
+  popperIs?: string; // default: "div"
+  popperProps?: Object;
   disabled?: boolean;
   teleportProps?: TeleportProps;
   transitionProps?: TransitionProps;

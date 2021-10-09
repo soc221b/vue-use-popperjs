@@ -55,13 +55,13 @@
         },
         template: `
           <Popper
-            popper-is="button"
-            :popper-props="{ id: 'reference' }"
-            :reference-is="div"
-            :reference-props="{ id: 'popper' }"
+            :reference-is="button"
+            :reference-props="{ id: 'reference' }"
+            popper-is="div"
+            :popper-props="{ id: 'popper' }"
           >
-            My button
-            <template #reference>My popper</template>
+            <template #reference>My button</template>
+            My popper
           </Popper>
           `,
       }).mount("#app");
