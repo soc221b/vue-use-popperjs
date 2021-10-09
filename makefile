@@ -11,6 +11,7 @@ build:
 	yarn rollup -c rollup.config.js
 
 test:
+	yarn jest
 	yarn cypress run
 
 clean:

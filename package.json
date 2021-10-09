@@ -57,6 +57,7 @@
     "@types/jest": "^27",
     "@types/node": "^16.7.5",
     "@vue/compiler-sfc": "^3.2.19",
+    "@vue/test-utils": "^2.0.0-rc.15",
     "change-case": "^4.1.2",
     "conventional-changelog-cli": "^2.1.1",
     "cypress": "^8.5.0",
