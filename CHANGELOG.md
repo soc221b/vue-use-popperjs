@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/iendeavor/vue-use-popperjs/compare/v2.0.1...v2.1.0) (2021-10-09)
+
+
+### Features
+
+* export transition events ([923ce2d](https://github.com/iendeavor/vue-use-popperjs/commit/923ce2d7ec3d5193960b69775c33d677caa01c4c))
+
 ### [2.0.1](https://github.com/iendeavor/vue-use-popperjs/compare/v2.0.0...v2.0.1) (2021-10-09)
 
 
