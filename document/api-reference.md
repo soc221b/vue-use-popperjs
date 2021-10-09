@@ -54,5 +54,18 @@ type props = {
   transitionProps?: TransitionProps;
 };
 
-type emitOptions = ["show", "hide"];
+type emitOptions = [
+  "show",
+  "hide",
+
+  // Transition only
+  "before-enter",
+  "enter",
+  "after-enter",
+  "enter-cancelled",
+  "before-leave",
+  "leave",
+  "after-leave",
+  "leave-cancelled"
+];
 ```
