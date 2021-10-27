@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/iendeavor/vue-use-popperjs/compare/v2.1.0...v2.2.0) (2021-10-27)
+
+
+### Features
+
+* more options support reactive ([e11c887](https://github.com/iendeavor/vue-use-popperjs/commit/e11c88709825417a5ef62e086093eebb58ca1133))
+
 ## [2.1.0](https://github.com/iendeavor/vue-use-popperjs/compare/v2.0.1...v2.1.0) (2021-10-09)
 
 
