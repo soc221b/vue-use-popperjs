@@ -50,9 +50,9 @@ export function usePopperjs(
     Parameters<typeof createPopper>["2"] &
       EventOptions & {
         trigger: MaybeRef<Trigger | undefined>;
-        delayOnMouseover: MaybeRef<number>;
-        delayOnMouseout: MaybeRef<number>;
-        forceShow: MaybeRef<boolean>;
+        delayOnMouseover: MaybeRef<number | undefined>;
+        delayOnMouseout: MaybeRef<number | undefined>;
+        forceShow: MaybeRef<boolean | undefined>;
       }
   >
 ) {
