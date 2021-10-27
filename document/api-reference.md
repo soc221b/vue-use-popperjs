@@ -32,19 +32,19 @@ function usePopperjs(
 
 ```ts
 type props = {
-  // The Popperjs options
+  // The Popperjs options (non-reactive)
   placement?: Placement; // default: "bottom"
   modifiers?: Array<TModifier>; // default: []
   strategy?: PositioningStrategy; // default: "absolute"
   onFirstUpdate?: (arg0: Partial<State>) => void;
 
-  // The usePopperjs options
-  trigger?: MaybeRef<Exclude<Trigger, "manual"> | undefined>; // default: "hover"
+  // The usePopperjs options (reactive)
+  trigger?: Exclude<Trigger, "manual">; // default: "hover"
   delayOnMouseover?: number; // default: 200
   delayOnMouseout?: number; // default: 200
   forceShow?: boolean; // default: false
 
-  // Extra props
+  // Extra props (reactive)
   referenceIs?: string; // default: "div"
   referenceProps?: Object;
   popperIs?: string; // default: "div"
