@@ -20,6 +20,10 @@ module.exports = {
         link: "/api-reference",
         activeMatch: "^/api-reference",
       },
+      {
+        text: "Changelog",
+        link: "https://github.com/iendeavor/vue-use-popperjs/blob/next/CHANGELOG.md",
+      },
     ],
   },
 };
