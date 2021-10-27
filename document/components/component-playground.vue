@@ -1,15 +1,15 @@
 <template>
-  <button @click="() => (disabled = !disabled)">
-    Disabled: {{ disabled }}
-  </button>
+  <label for="disabled">Disabled:</label>
+  <input id="disabled" v-model="disabled" type="checkbox" />
   <br />
-  <button @click="() => (teleportToBody = !teleportToBody)">
-    Teleport to body: {{ teleportToBody }}
-  </button>
+
+  <label for="teleportToBody">Teleport to body:</label>
+  <input id="teleportToBody" v-model="teleportToBody" type="checkbox" />
   <br />
-  <button @click="() => (useTransition = !useTransition)">
-    Use fade transition: {{ useTransition }}
-  </button>
+
+  <label for="useTransition">Enable fade transition:</label>
+  <input id="useTransition" v-model="useTransition" type="checkbox" />
+  <br />
 
   <div id="root">
     <Popper
@@ -28,7 +28,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { Popper } from "../.."; // ... from "vue-use-popperjs"
+import { Popper } from "../../src"; // ... from "vue-use-popperjs"
 
 export default defineComponent({
   components: {

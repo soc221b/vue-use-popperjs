@@ -1,9 +1,6 @@
 <template>
-  <div ref="popcorn" id="popcorn" aria-describedby="tooltip"></div>
-  <div ref="tooltip" id="tooltip" role="tooltip">
-    My tooltip
-    <div id="arrow" data-popper-arrow></div>
-  </div>
+  <div ref="popcorn"></div>
+  <div ref="tooltip">My tooltip</div>
 </template>
 
 <script setup lang="ts">
@@ -25,8 +22,8 @@ usePopperjs(popcorn, tooltip, {
 </script>
 
 <style scoped>
-#tooltip.vue-use-popperjs-none,
-#tooltip.vue-use-popperjs-none #arrow::before {
+.vue-use-popperjs-none,
+.vue-use-popperjs-none #arrow::before {
   visibility: hidden;
 }
 </style>

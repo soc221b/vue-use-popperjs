@@ -14,7 +14,7 @@ module.exports = {
 
     nav: [
       { text: "Guide", link: "/", activeMatch: "^/$|^/guide/" },
-      { text: "Examples", link: "/examples", activeMatch: "^/examples" },
+      { text: "Playground", link: "/playground", activeMatch: "^/playground" },
       {
         text: "API Reference",
         link: "/api-reference",

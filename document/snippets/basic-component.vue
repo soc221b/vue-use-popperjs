@@ -1,12 +1,5 @@
 <template>
-  <Popper
-    :reference-props="{ id: 'popcorn' }"
-    :popper-props="{ id: 'tooltip' }"
-    :modifiers="modifiers"
-  >
-    My tooltip
-    <div id="arrow" data-popper-arrow></div>
-  </Popper>
+  <Popper :modifiers="modifiers"> My tooltip </Popper>
 </template>
 
 <script setup lang="ts">
