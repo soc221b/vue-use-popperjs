@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.1](https://github.com/iendeavor/vue-use-popperjs/compare/v2.2.0...v2.2.1) (2021-10-27)
+
+
+### Bug Fixes
+
+* hide after cancel forceShow ([9f92930](https://github.com/iendeavor/vue-use-popperjs/commit/9f92930ed56fb27cac0c34c46a2d62cbe2005e25))
+* options can be undefined ([b0d0ec0](https://github.com/iendeavor/vue-use-popperjs/commit/b0d0ec033f703366f73aa1577903e9a1be2e15e1))
+* reactivity ([6589890](https://github.com/iendeavor/vue-use-popperjs/commit/6589890534770a5a53934d8938a2bc359e8483c6))
+* reactivity ([95166e9](https://github.com/iendeavor/vue-use-popperjs/commit/95166e97bcf0ad585c1a6445e77f032ebce51a0e))
+
 ## [2.2.0](https://github.com/iendeavor/vue-use-popperjs/compare/v2.1.0...v2.2.0) (2021-10-27)
 
 
