@@ -124,7 +124,7 @@ export function usePopperjs(
   const doOpen = () => (visible.value = true);
   const doClose = () => (visible.value = false);
   watch(
-    () => [instance.value, unref(options?.trigger)],
+    () => [instance.value, unref(options?.trigger), unref(options?.forceShow)],
     () => {
       if (!instance.value) return;
 
