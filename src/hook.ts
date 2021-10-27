@@ -50,9 +50,9 @@ export function usePopperjs(
     Parameters<typeof createPopper>["2"] &
       EventOptions & {
         trigger: MaybeRef<Trigger | undefined>;
-        delayOnMouseover: number;
-        delayOnMouseout: number;
-        forceShow: boolean;
+        delayOnMouseover: MaybeRef<number>;
+        delayOnMouseout: MaybeRef<number>;
+        forceShow: MaybeRef<boolean>;
       }
   >
 ) {
@@ -128,7 +128,7 @@ export function usePopperjs(
     () => {
       if (!instance.value) return;
 
-      if (options?.forceShow) {
+      if (unref(options?.forceShow)) {
         visible.value = true;
         doOff();
         return;
@@ -140,23 +140,23 @@ export function usePopperjs(
 
   const timer = ref<any>();
   const doMouseover = () => {
-    if (options?.delayOnMouseover === 0) {
+    if (unref(options?.delayOnMouseover) === 0) {
       doOpen();
     } else {
       clearTimeout(timer.value);
       timer.value = setTimeout(() => {
         doOpen();
-      }, options?.delayOnMouseover ?? 200);
+      }, unref(options?.delayOnMouseover) ?? 200);
     }
   };
   const doMouseout = () => {
-    if (options?.delayOnMouseout === 0) {
+    if (unref(options?.delayOnMouseout) === 0) {
       doClose();
     } else {
       clearTimeout(timer.value);
       timer.value = setTimeout(() => {
         doClose();
-      }, options?.delayOnMouseout ?? 200);
+      }, unref(options?.delayOnMouseout) ?? 200);
     }
   };
 
@@ -228,7 +228,7 @@ export function usePopperjs(
     () => {
       if (!instance.value) return;
 
-      if (visible.value || options?.forceShow) {
+      if (visible.value || unref(options?.forceShow)) {
         popperRef.value?.classList.remove("vue-use-popperjs-none");
         options?.onShow?.();
         instance.value?.update();
