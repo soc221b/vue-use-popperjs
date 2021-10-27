@@ -15,9 +15,9 @@ function usePopperjs(
 
     // Extra options
     trigger?: MaybeRef<Trigger | undefined>; // default: "hover"
-    delayOnMouseover?: number; // default: 200
-    delayOnMouseout?: number; // default: 200
-    forceShow?: boolean; // default: false
+    delayOnMouseover?: MaybeRef<number>; // default: 200
+    delayOnMouseout?: MaybeRef<number>; // default: 200
+    forceShow?: MaybeRef<boolean>; // default: false
     onShow?: Function;
     onHide?: Function;
   }
