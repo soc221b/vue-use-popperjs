@@ -37,6 +37,7 @@
 import {
   defineComponent,
   ref,
+  toRef,
   computed,
   watch,
   PropType,
@@ -117,6 +118,10 @@ export default defineComponent({
     const popper = ref();
     const { visible } = usePopperjs(reference, popper, {
       ...props,
+      trigger: toRef(props, "trigger"),
+      forceShow: toRef(props, "forceShow"),
+      delayOnMouseover: toRef(props, "delayOnMouseover"),
+      delayOnMouseout: toRef(props, "delayOnMouseout"),
       onShow: () => emit("show"),
       onHide: () => emit("hide"),
     });
