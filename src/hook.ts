@@ -138,6 +138,16 @@ export function usePopperjs(
     }
   );
 
+  watch(
+    () => unref(options?.forceShow),
+    () => {
+      if (unref(options?.forceShow)) return;
+      if (unref(options?.trigger) === "manual") return;
+
+      visible.value = false;
+    }
+  );
+
   const timer = ref<any>();
   const doMouseover = () => {
     if (unref(options?.delayOnMouseover) === 0) {
