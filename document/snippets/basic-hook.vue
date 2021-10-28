@@ -17,3 +17,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.vue-use-popperjs-none {
+  display: none;
+}
+</style>

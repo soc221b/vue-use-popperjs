@@ -51,7 +51,7 @@ Vue-use-popperjs automatically add `.vue-use-popperjs-none` class when popper is
 
 ```css
 .vue-use-popperjs-none {
-  visibility: hidden;
+  display: none;
 }
 ```
 
