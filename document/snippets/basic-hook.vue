@@ -1,29 +1,19 @@
 <template>
-  <div ref="popcorn"></div>
-  <div ref="tooltip">My tooltip</div>
+  <button ref="button">Hover me!</button>
+  <span ref="tooltip">Tooltip</span>
 </template>
 
-<script setup lang="ts">
-import { ref } from "vue";
+<script lang="ts">
+import { defineComponent, ref } from "vue";
 import { usePopperjs } from "vue-use-popperjs";
 
-const popcorn = ref();
-const tooltip = ref();
-usePopperjs(popcorn, tooltip, {
-  modifiers: [
-    {
-      name: "offset",
-      options: {
-        offset: [0, 8],
-      },
-    },
-  ],
+export default defineComponent({
+  setup() {
+    const button = ref();
+    const tooltip = ref();
+    usePopperjs(button, tooltip);
+
+    return { button, tooltip };
+  },
 });
 </script>
-
-<style scoped>
-.vue-use-popperjs-none,
-.vue-use-popperjs-none #arrow::before {
-  visibility: hidden;
-}
-</style>

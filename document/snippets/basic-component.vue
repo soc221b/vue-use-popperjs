@@ -1,16 +1,17 @@
 <template>
-  <Popper :modifiers="modifiers"> My tooltip </Popper>
+  <Popper reference-is="button" popper-is="span">
+    <template #reference>Hover me!</template>
+    Tooltip
+  </Popper>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent } from "vue";
 import { Popper } from "vue-use-popperjs";
 
-const modifiers = [
-  {
-    name: "offset",
-    options: {
-      offset: [0, 8],
-    },
+export default defineComponent({
+  components: {
+    Popper,
   },
-];
+});
 </script>

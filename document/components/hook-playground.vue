@@ -56,11 +56,11 @@
     </div>
   </div>
 </template>
-../../src
 
 <script lang="ts">
 import { defineComponent, ref, computed } from "vue";
-import { usePopperjs, Trigger } from "../.."; // ... from "vue-use-popperjs"
+import { usePopperjs, Trigger } from "../.."; // import { usePopperjs, Trigger } from "vue-use-popperjs"
+import "../assets/popcorn.css";
 
 export default defineComponent({
   setup() {
@@ -103,10 +103,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-#tooltip.vue-use-popperjs-none,
-#tooltip.vue-use-popperjs-none #arrow::before {
-  visibility: hidden;
-}
-</style>

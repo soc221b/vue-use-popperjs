@@ -28,7 +28,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { Popper } from "../../src"; // ... from "vue-use-popperjs"
+import { Popper } from "../.."; // import { Popper } from "vue-use-popperjs"
+import "../assets/popcorn.css";
 
 export default defineComponent({
   components: {

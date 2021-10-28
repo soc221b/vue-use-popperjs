@@ -74,3 +74,8 @@ button {
 [data-popper-placement^="right"] #arrow {
   left: -4px;
 }
+
+.vue-use-popperjs-none,
+.vue-use-popperjs-none #arrow::before {
+  visibility: hidden;
+}
