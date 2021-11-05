@@ -42,7 +42,7 @@ $ yarn add vue-use-popperjs
 
 > vue-use-popperjs@^2 only works with vue@3.
 
-## Usage
+## Basic Usage
 
 ### Hook
 
@@ -102,4 +102,111 @@ Vue-use-popperjs automatically add `.vue-use-popperjs-none` class to popper when
     },
   });
 </script>
+```
+
+## Advanced Usage
+
+### Component
+
+```html
+<template>
+  <Popper
+    reference-is="span"
+    :reference-props="{ id: 'popcorn' }"
+    popper-is="span"
+    :popper-props="{ id: 'tooltip' }"
+    :teleport-props="{ to: 'body' }"
+    :transition-props="{ name: 'fade' }"
+    :modifiers="modifiers"
+  >
+    Tooltip
+    <div id="arrow" data-popper-arrow></div>
+  </Popper>
+</template>
+
+<script lang="ts">
+  import { defineComponent } from "vue";
+  import { Popper } from "vue-use-popperjs";
+
+  export default defineComponent({
+    components: {
+      Popper,
+    },
+    setup() {
+      const modifiers = [
+        {
+          name: "offset",
+          options: {
+            offset: [0, 8],
+          },
+        },
+      ];
+
+      return { modifiers };
+    },
+  });
+</script>
+
+<style>
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s ease;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
+  #popcorn {
+    display: inline-block;
+    width: 134px;
+    height: 120px;
+    background-image: url("https://popper.js.org/images/popcorn-box.svg");
+  }
+
+  #tooltip {
+    display: inline-block;
+    background: #643045;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 5px 10px;
+    font-size: 13px;
+    border-radius: 4px;
+  }
+
+  #arrow,
+  #arrow::before {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: inherit;
+  }
+
+  #arrow {
+    visibility: hidden;
+  }
+
+  #arrow::before {
+    visibility: visible;
+    content: "";
+    transform: rotate(45deg);
+  }
+
+  [data-popper-placement^="top"] #arrow {
+    bottom: -4px;
+  }
+
+  [data-popper-placement^="bottom"] #arrow {
+    top: -4px;
+  }
+
+  [data-popper-placement^="left"] #arrow {
+    right: -4px;
+  }
+
+  [data-popper-placement^="right"] #arrow {
+    left: -4px;
+  }
+</style>
 ```
