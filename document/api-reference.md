@@ -15,8 +15,8 @@ function usePopperjs(
 
     // Extra options
     trigger?: MaybeRef<Trigger | undefined>; // default: "hover"
-    delayOnMouseover?: MaybeRef<number>; // default: 200
-    delayOnMouseout?: MaybeRef<number>; // default: 200
+    delayOnMouseover?: MaybeRef<number>; // default: 200, only works when trigger='hover'
+    delayOnMouseout?: MaybeRef<number>; // default: 200, only works when trigger='hover'
     forceShow?: MaybeRef<boolean>; // default: false
     onShow?: Function;
     onHide?: Function;
@@ -40,8 +40,8 @@ type props = {
 
   // The usePopperjs options (reactive)
   trigger?: Exclude<Trigger, "manual">; // default: "hover"
-  delayOnMouseover?: number; // default: 200
-  delayOnMouseout?: number; // default: 200
+  delayOnMouseover?: number; // default: 200, only works when trigger='hover'
+  delayOnMouseout?: number; // default: 200, only works when trigger='hover'
   forceShow?: boolean; // default: false
 
   // Extra props (reactive)
