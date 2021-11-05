@@ -8,7 +8,7 @@ Vue-popper-js is complete popper solution powered by [@popperjs](https://popper.
 
 ## Features
 
-- Built custom popover with **hook function**
+- Built fully customizable popover with **hook function**
 - (Vue 3 only) **Popper component**, with built-in support for [**Component**](https://v3.vuejs.org/api/built-in-components.html#component), [**Teleport**](https://v3.vuejs.org/api/built-in-components.html#teleport), and [**Transition**](https://v3.vuejs.org/api/built-in-components.html#transition)
 
 ## Installation
@@ -47,7 +47,7 @@ vue-use-popperjs@^2 only works with vue@3.
 <<< @/snippets/basic-hook.vue
 
 ::: tip
-Vue-use-popperjs automatically add `.vue-use-popperjs-none` class when popper is hidden, you can add following css to hide poppers:
+Vue-use-popperjs automatically add `.vue-use-popperjs-none` class to popper when it is hidden, you can add following css to hide poppers:
 
 ```css
 .vue-use-popperjs-none {
