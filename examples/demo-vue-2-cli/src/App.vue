@@ -64,8 +64,9 @@ export default defineComponent({
   border-radius: 4px;
 }
 
-#tooltip.vue-use-popperjs-none {
-  visibility: hidden;
+#tooltip.vue-use-popperjs-none,
+#tooltip.vue-use-popperjs-none #arrow::before {
+  display: none;
 }
 
 #arrow,
