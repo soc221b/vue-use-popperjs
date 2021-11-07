@@ -22,6 +22,7 @@ clean:
 	rm -rf /dist
 
 release:
+	make build
 	yarn standard-version
 
 install-examples:
