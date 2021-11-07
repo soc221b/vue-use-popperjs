@@ -40,6 +40,7 @@ import {
   toRef,
   computed,
   watch,
+  UnwrapRef,
   PropType,
   TeleportProps,
   TransitionProps,
@@ -62,7 +63,7 @@ export default defineComponent({
     delayOnMouseover: Number,
     trigger: String as PropType<
       Exclude<
-        Required<Parameters<typeof usePopperjs>>["2"]["trigger"],
+        UnwrapRef<Required<Parameters<typeof usePopperjs>>["2"]["trigger"]>,
         "manual"
       >
     >,
