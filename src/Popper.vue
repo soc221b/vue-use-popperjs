@@ -137,7 +137,9 @@ export default defineComponent({
     );
 
     const role = computed(() =>
-      visible.value ? "vue-use-popperjs-" + popperUid++ : undefined
+      typeof __TEST__ === "undefined" && visible.value
+        ? "vue-use-popperjs-" + popperUid++
+        : undefined
     );
 
     return {

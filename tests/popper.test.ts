@@ -123,8 +123,8 @@ describe("Popper", () => {
     await waitForFinishAnimation();
 
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div id=\\"reference\\" aria-describedby=\\"vue-use-popperjs-0\\">My reference</div>
-      <div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\" role=\\"vue-use-popperjs-0\\"> My popper </div>"
+      "<div id=\\"reference\\">My reference</div>
+      <div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"> My popper </div>"
     `);
   });
 
@@ -187,14 +187,14 @@ describe("Popper", () => {
       await waitForFinishAnimation();
 
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<span id=\\"reference\\" aria-describedby=\\"vue-use-popperjs-2\\">My reference</span>
+        "<span id=\\"reference\\">My reference</span>
         <!--teleport start-->
         <!--teleport end-->"
       `);
       expect(
         wrapper.getComponent(MyPopper).element.parentElement?.outerHTML
       ).toMatchInlineSnapshot(
-        `"<div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\" role=\\"vue-use-popperjs-2\\"><div>My popper</div></div>"`
+        `"<div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"><div>My popper</div></div>"`
       );
     });
   });
