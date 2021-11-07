@@ -1,5 +1,35 @@
 # API Reference
 
+## MISC
+
+```typescript
+type MaybeRef<T> = T | Ref<T>;
+
+type Trigger =
+  | "hover"
+  | "focus"
+  | "click-to-open"
+  | "click-to-toggle"
+  | "manual";
+
+type Placement =
+  | "auto"
+  | "auto-start"
+  | "auto-end"
+  | "left"
+  | "right"
+  | "top"
+  | "bottom"
+  | "top-start"
+  | "top-end"
+  | "bottom-start"
+  | "bottom-end"
+  | "right-start"
+  | "right-end"
+  | "left-start"
+  | "left-end";
+```
+
 ## usePopperjs
 
 ```ts
