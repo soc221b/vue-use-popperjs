@@ -14,6 +14,9 @@ test:
 	yarn jest
 	yarn cypress run
 
+test-watch:
+	yarn jest --watch
+
 clean:
 	rm -rf /node_modules
 	rm -rf /dist
