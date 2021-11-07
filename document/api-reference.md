@@ -46,9 +46,9 @@ type props = {
 
   // Extra props (reactive)
   referenceIs?: string; // default: "div"
-  referenceProps?: Object;
+  referenceProps?: Record<string, any>;
   popperIs?: string; // default: "div"
-  popperProps?: Object;
+  popperProps?: Record<string, any>;
   disabled?: boolean;
   teleportProps?: TeleportProps;
   transitionProps?: TransitionProps;
