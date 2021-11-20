@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.4](https://github.com/iendeavor/vue-use-popperjs/compare/v2.2.3...v2.2.4) (2021-11-20)
+
+
+### Bug Fixes
+
+* instance should be created after children are mounted ([d9cc3f3](https://github.com/iendeavor/vue-use-popperjs/commit/d9cc3f3a847ce30fe34585207c9214cee94ee2b9))
+
 ### [2.2.3](https://github.com/iendeavor/vue-use-popperjs/compare/v2.2.2...v2.2.3) (2021-11-07)
 
 
