@@ -1,6 +1,3 @@
-docs:
-	yarn vitepress dev document
-
 lint:
 	yarn prettier --write .
 
