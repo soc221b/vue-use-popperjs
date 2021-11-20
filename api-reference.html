@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>API Reference | Vue-use-popperjs</title>
+    <meta name="description" content="Vue 2, 3 popper solution powered by @popperjs">
+    <link rel="stylesheet" href="/vue-use-popperjs/assets/style.0d5ae986.css">
+    <link rel="modulepreload" href="/vue-use-popperjs/assets/Home.51205ed4.js">
+    <link rel="modulepreload" href="/vue-use-popperjs/assets/app.f9cc102a.js">
+    <link rel="modulepreload" href="/vue-use-popperjs/assets/api-reference.md.c20dc2fc.lean.js">
+    <link rel="modulepreload" href="/vue-use-popperjs/assets/app.f9cc102a.js">
+    <meta name="twitter:title" content="API Reference | Vue-use-popperjs">
+    <meta property="og:title" content="API Reference | Vue-use-popperjs">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme"><header class="nav-bar" data-v-675d8756><div class="sidebar-button" data-v-675d8756><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class></path></svg></div><a class="nav-bar-title" href="/vue-use-popperjs/" aria-label="Vue-use-popperjs, back to home" data-v-675d8756 data-v-4a583abe><!----> Vue-use-popperjs</a><div class="flex-grow" data-v-675d8756></div><div class="nav" data-v-675d8756><nav class="nav-links" data-v-675d8756 data-v-eab3edfe><!--[--><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/vue-use-popperjs/" data-v-b8818f8c>Guide <!----></a></div></div><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/vue-use-popperjs/playground" data-v-b8818f8c>Playground <!----></a></div></div><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item active" href="/vue-use-popperjs/api-reference" data-v-b8818f8c>API Reference <!----></a></div></div><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item isExternal" href="https://github.com/iendeavor/vue-use-popperjs/blob/next/CHANGELOG.md" target="_blank" rel="noopener noreferrer" data-v-b8818f8c>Changelog <svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15" data-v-b8818f8c><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div></div><!--]--><!----><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item isExternal" href="https://github.com/iendeavor/vue-use-popperjs" target="_blank" rel="noopener noreferrer" data-v-b8818f8c>GitHub <svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15" data-v-b8818f8c><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div></div></nav></div><!--[--><!--]--></header><aside class="sidebar" data-v-83e92a68><nav class="nav-links nav" data-v-83e92a68 data-v-eab3edfe><!--[--><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/vue-use-popperjs/" data-v-b8818f8c>Guide <!----></a></div></div><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/vue-use-popperjs/playground" data-v-b8818f8c>Playground <!----></a></div></div><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item active" href="/vue-use-popperjs/api-reference" data-v-b8818f8c>API Reference <!----></a></div></div><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item isExternal" href="https://github.com/iendeavor/vue-use-popperjs/blob/next/CHANGELOG.md" target="_blank" rel="noopener noreferrer" data-v-b8818f8c>Changelog <svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15" data-v-b8818f8c><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div></div><!--]--><!----><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item isExternal" href="https://github.com/iendeavor/vue-use-popperjs" target="_blank" rel="noopener noreferrer" data-v-b8818f8c>GitHub <svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15" data-v-b8818f8c><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div></div></nav><!--[--><!--]--><ul class="sidebar-links" data-v-83e92a68><!--[--><li class="sidebar-link"><a class="sidebar-link-item" href="#misc">MISC</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#usepopperjs">usePopperjs</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#popper">Popper</a><!----></li><!--]--></ul><!--[--><!--]--></aside><!-- TODO: make this button accessible --><div class="sidebar-mask"></div><main class="page" data-v-7eddb2c4><div class="container" data-v-7eddb2c4><!--[--><!--]--><div style="position:relative;" class="content" data-v-7eddb2c4><div><h1 id="api-reference" tabindex="-1">API Reference <a class="header-anchor" href="#api-reference" aria-hidden="true">#</a></h1><h2 id="misc" tabindex="-1">MISC <a class="header-anchor" href="#misc" aria-hidden="true">#</a></h2><div class="language-typescript"><pre><code><span class="token keyword">type</span> <span class="token class-name">MaybeRef<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span></span> <span class="token operator">=</span> <span class="token constant">T</span> <span class="token operator">|</span> Ref<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Trigger</span> <span class="token operator">=</span>
+  <span class="token operator">|</span> <span class="token string">&quot;hover&quot;</span>
+  <span class="token operator">|</span> <span class="token string">&quot;focus&quot;</span>
+  <span class="token operator">|</span> <span class="token string">&quot;click-to-open&quot;</span>
+  <span class="token operator">|</span> <span class="token string">&quot;click-to-toggle&quot;</span>
+  <span class="token operator">|</span> <span class="token string">&quot;manual&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Placement</span> <span class="token operator">=</span>
+  <span class="token operator">|</span> <span class="token string">&quot;auto&quot;</span>
+  <span class="token operator">|</span> <span class="token string">&quot;auto-start&quot;</span>
+  <span class="token operator">|</span> <span class="token string">&quot;auto-end&quot;</span>
+  <span class="token operator">|</span> <span class="token string">&quot;left&quot;</span>
+  <span class="token operator">|</span> <span class="token string">&quot;right&quot;</span>
+  <span class="token operator">|</span> <span class="token string">&quot;top&quot;</span>
+  <span class="token operator">|</span> <span class="token string">&quot;bottom&quot;</span>
+  <span class="token operator">|</span> <span class="token string">&quot;top-start&quot;</span>
+  <span class="token operator">|</span> <span class="token string">&quot;top-end&quot;</span>
+  <span class="token operator">|</span> <span class="token string">&quot;bottom-start&quot;</span>
+  <span class="token operator">|</span> <span class="token string">&quot;bottom-end&quot;</span>
+  <span class="token operator">|</span> <span class="token string">&quot;right-start&quot;</span>
+  <span class="token operator">|</span> <span class="token string">&quot;right-end&quot;</span>
+  <span class="token operator">|</span> <span class="token string">&quot;left-start&quot;</span>
+  <span class="token operator">|</span> <span class="token string">&quot;left-end&quot;</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="usepopperjs" tabindex="-1">usePopperjs <a class="header-anchor" href="#usepopperjs" aria-hidden="true">#</a></h2><div class="language-ts"><pre><code><span class="token keyword">function</span> <span class="token function">usePopperjs</span><span class="token punctuation">(</span>
+  reference<span class="token operator">:</span> MaybeRef<span class="token operator">&lt;</span>Element <span class="token operator">|</span> VirtualElement<span class="token operator">&gt;</span><span class="token punctuation">,</span>
+  popper<span class="token operator">:</span> MaybeRef<span class="token operator">&lt;</span>HTMLElement<span class="token operator">&gt;</span><span class="token punctuation">,</span>
+  options<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// The Popperjs options</span>
+    placement<span class="token operator">?</span><span class="token operator">:</span> Placement<span class="token punctuation">;</span> <span class="token comment">// default: &quot;bottom&quot;</span>
+    modifiers<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>TModifier<span class="token operator">&gt;</span><span class="token punctuation">;</span> <span class="token comment">// default: []</span>
+    strategy<span class="token operator">?</span><span class="token operator">:</span> PositioningStrategy<span class="token punctuation">;</span> <span class="token comment">// default: &quot;absolute&quot;</span>
+    onFirstUpdate<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span>arg0<span class="token operator">:</span> Partial<span class="token operator">&lt;</span>State<span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Extra options</span>
+    trigger<span class="token operator">?</span><span class="token operator">:</span> MaybeRef<span class="token operator">&lt;</span>Trigger <span class="token operator">|</span> <span class="token keyword">undefined</span><span class="token operator">&gt;</span><span class="token punctuation">;</span> <span class="token comment">// default: &quot;hover&quot;</span>
+    delayOnMouseover<span class="token operator">?</span><span class="token operator">:</span> MaybeRef<span class="token operator">&lt;</span><span class="token builtin">number</span><span class="token operator">&gt;</span><span class="token punctuation">;</span> <span class="token comment">// default: 200, only works when trigger=&#39;hover&#39;</span>
+    delayOnMouseout<span class="token operator">?</span><span class="token operator">:</span> MaybeRef<span class="token operator">&lt;</span><span class="token builtin">number</span><span class="token operator">&gt;</span><span class="token punctuation">;</span> <span class="token comment">// default: 200, only works when trigger=&#39;hover&#39;</span>
+    forceShow<span class="token operator">?</span><span class="token operator">:</span> MaybeRef<span class="token operator">&lt;</span><span class="token builtin">boolean</span><span class="token operator">&gt;</span><span class="token punctuation">;</span> <span class="token comment">// default: false</span>
+    onShow<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">Function</span><span class="token punctuation">;</span>
+    onHide<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">Function</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token comment">// The Popperjs instance</span>
+  instance<span class="token operator">:</span> Ref<span class="token operator">&lt;</span>Instance <span class="token operator">|</span> <span class="token keyword">undefined</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+  visible<span class="token operator">:</span> Ref<span class="token operator">&lt;</span><span class="token builtin">boolean</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="popper" tabindex="-1">Popper <a class="header-anchor" href="#popper" aria-hidden="true">#</a></h2><div class="language-ts"><pre><code><span class="token keyword">type</span> <span class="token class-name">props</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// The Popperjs options (non-reactive)</span>
+  placement<span class="token operator">?</span><span class="token operator">:</span> Placement<span class="token punctuation">;</span> <span class="token comment">// default: &quot;bottom&quot;</span>
+  modifiers<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>TModifier<span class="token operator">&gt;</span><span class="token punctuation">;</span> <span class="token comment">// default: []</span>
+  strategy<span class="token operator">?</span><span class="token operator">:</span> PositioningStrategy<span class="token punctuation">;</span> <span class="token comment">// default: &quot;absolute&quot;</span>
+  onFirstUpdate<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span>arg0<span class="token operator">:</span> Partial<span class="token operator">&lt;</span>State<span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// The usePopperjs options (reactive)</span>
+  trigger<span class="token operator">?</span><span class="token operator">:</span> Exclude<span class="token operator">&lt;</span>Trigger<span class="token punctuation">,</span> <span class="token string">&quot;manual&quot;</span><span class="token operator">&gt;</span><span class="token punctuation">;</span> <span class="token comment">// default: &quot;hover&quot;</span>
+  delayOnMouseover<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span> <span class="token comment">// default: 200, only works when trigger=&#39;hover&#39;</span>
+  delayOnMouseout<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span> <span class="token comment">// default: 200, only works when trigger=&#39;hover&#39;</span>
+  forceShow<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span> <span class="token comment">// default: false</span>
+
+  <span class="token comment">// Extra props (reactive)</span>
+  referenceIs<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span> <span class="token comment">// default: &quot;div&quot;</span>
+  referenceProps<span class="token operator">?</span><span class="token operator">:</span> Record<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">any</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+  popperIs<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span> <span class="token comment">// default: &quot;div&quot;</span>
+  popperProps<span class="token operator">?</span><span class="token operator">:</span> Record<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">any</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+  disabled<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+  teleportProps<span class="token operator">?</span><span class="token operator">:</span> TeleportProps<span class="token punctuation">;</span>
+  transitionProps<span class="token operator">?</span><span class="token operator">:</span> TransitionProps<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">type</span> <span class="token class-name">emitOptions</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token string">&quot;show&quot;</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;hide&quot;</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Deprecated: pass following props to transitionProps instead</span>
+  <span class="token comment">// Transition only</span>
+  <span class="token string">&quot;before-enter&quot;</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;enter&quot;</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;after-enter&quot;</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;enter-cancelled&quot;</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;before-leave&quot;</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;leave&quot;</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;after-leave&quot;</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;leave-cancelled&quot;</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre></div></div></div><footer class="page-footer" data-v-7eddb2c4 data-v-fb8d84c6><div class="edit" data-v-fb8d84c6><div class="edit-link" data-v-fb8d84c6 data-v-1ed99556><a class="link" href="https://github.com/iendeavor/vue-use-popperjs/edit/develop/document/api-reference.md" target="_blank" rel="noopener noreferrer" data-v-1ed99556>Edit this page on GitHub <svg class="icon outbound icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15" data-v-1ed99556><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div></div><div class="updated" data-v-fb8d84c6><p class="last-updated" data-v-fb8d84c6 data-v-5797b537><span class="prefix" data-v-5797b537>Last Updated:</span><span class="datetime" data-v-5797b537></span></p></div></footer><!----><!--[--><!--]--></div></main></div><!----><!--]--></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"api-reference.md\":\"c20dc2fc\",\"index.md\":\"33fe6455\",\"playground.md\":\"c5db0b23\"}")</script>
+    <script type="module" async src="/vue-use-popperjs/assets/app.f9cc102a.js"></script>
+    
+  </body>
+</html>
