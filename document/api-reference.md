@@ -36,7 +36,7 @@ type Placement =
 function usePopperjs(
   reference: MaybeRef<Element | VirtualElement>,
   popper: MaybeRef<HTMLElement>,
-  options: MaybeRef<{
+  options: {
     // The Popperjs options
     placement?: Placement; // default: "bottom"
     modifiers?: Array<TModifier>; // default: []
@@ -50,10 +50,10 @@ function usePopperjs(
     forceShow?: MaybeRef<boolean>; // default: false
     onShow?: Function;
     onHide?: Function;
-  }>
+  }
 ): {
   // The Popperjs instance
-  instance: Instance;
+  instance: Ref<Instance | undefined>;
   visible: Ref<boolean>;
 };
 ```
