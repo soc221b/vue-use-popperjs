@@ -104,6 +104,8 @@ export default defineComponent({
   emits: [
     "show",
     "hide",
+
+    // TODO: remove following emits and pass props to transitionProps instead
     "before-enter",
     "enter",
     "after-enter",

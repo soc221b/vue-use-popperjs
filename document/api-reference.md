@@ -88,6 +88,7 @@ type emitOptions = [
   "show",
   "hide",
 
+  // Deprecated: pass following props to transitionProps instead
   // Transition only
   "before-enter",
   "enter",
