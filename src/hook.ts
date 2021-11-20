@@ -1,13 +1,4 @@
-import {
-  nextTick,
-  onMounted,
-  onUnmounted,
-  onUpdated,
-  Ref,
-  ref,
-  unref,
-  watch,
-} from "vue";
+import { onMounted, onUnmounted, onUpdated, Ref, ref, unref, watch } from "vue";
 import { createPopper } from "@popperjs/core";
 
 export type MaybeRef<T> = T | Ref<T>;
@@ -56,30 +47,26 @@ export function usePopperjs(
       }
   >
 ) {
-  const isChildrenMounted = ref(false);
+  const isMounted = ref(false);
   onMounted(() => {
-    nextTick(() => {
-      isChildrenMounted.value = true;
-    });
+    isMounted.value = true;
   });
   onUnmounted(() => {
-    isChildrenMounted.value = false;
+    isMounted.value = false;
     destroy();
   });
 
-  const childrenUpdatedFlag = ref(true);
+  const updatedFlag = ref(true);
   onUpdated(() => {
-    nextTick(() => {
-      childrenUpdatedFlag.value = !childrenUpdatedFlag.value;
-    });
+    updatedFlag.value = !updatedFlag.value;
   });
 
   const referenceRef = ref<Element>();
   const popperRef = ref<HTMLElement>();
   watch(
-    () => [isChildrenMounted.value, childrenUpdatedFlag.value],
+    () => [isMounted.value, updatedFlag.value],
     () => {
-      if (!isChildrenMounted.value) return;
+      if (!isMounted.value) return;
 
       if ((unref(reference) as any)?.$el) {
         referenceRef.value = (unref(reference) as any).$el;
