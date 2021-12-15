@@ -2,7 +2,7 @@
   "name": "vue-use-popperjs",
   "version": "2.2.4",
   "engines": {
-    "node": "^12.13.0 || ^14.15.0"
+    "node": "^12.13.0 || ^14.15.0 || >=16.5.0"
   },
   "description": "Vue 3 popper solution powered by @popperjs",
   "main": "dist/index.cjs.prod.js",
