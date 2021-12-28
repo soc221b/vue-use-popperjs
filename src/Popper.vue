@@ -140,7 +140,7 @@ export default defineComponent({
     );
 
     const role = computed(() =>
-      typeof __TEST__ === "undefined" && visible.value
+      process.env.NODE_ENV === "test" && visible.value
         ? "vue-use-popperjs-" + popperUid++
         : undefined
     );
