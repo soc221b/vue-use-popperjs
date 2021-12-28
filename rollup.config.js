@@ -21,6 +21,8 @@ if (process.env.DEVELOPMENT) formats.splice(2);
 
 const configs = [];
 formats.forEach((format) => {
+  const isIifeOrCjs = format === "iife" || format === "cjs";
+
   const config = {
     input,
     external: ["vue-demi"],
@@ -47,9 +49,13 @@ formats.forEach((format) => {
     ...config,
     plugins: [
       ...config.plugins,
-      replace({
-        "process.env.NODE_ENV": "'development'",
-      }),
+      ...(isIifeOrCjs
+        ? [
+            replace({
+              "process.env.NODE_ENV": "'development'",
+            }),
+          ]
+        : []),
     ],
     output: {
       ...config.output,
@@ -61,9 +67,13 @@ formats.forEach((format) => {
     ...config,
     plugins: [
       ...config.plugins,
-      replace({
-        "process.env.NODE_ENV": "'production'",
-      }),
+      ...(isIifeOrCjs
+        ? [
+            replace({
+              "process.env.NODE_ENV": "'production'",
+            }),
+          ]
+        : []),
       terser(),
     ],
     output: {
