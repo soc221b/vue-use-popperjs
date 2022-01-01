@@ -9,6 +9,7 @@ import {
   watch,
 } from "vue-demi";
 import { createPopper } from "@popperjs/core";
+import { warn } from "./utils";
 
 export type MaybeRef<T> = T | Ref<T>;
 
@@ -42,6 +43,8 @@ function off(
     element.removeEventListener(event, handler, false);
   }
 }
+
+const defaultTrigger: Trigger = "hover";
 
 export function usePopperjs(
   reference: MaybeRef<Parameters<typeof createPopper>["0"]>,
@@ -173,7 +176,7 @@ export function usePopperjs(
   const doOn = () => {
     doOff();
 
-    switch (unref(options?.trigger) ?? "hover") {
+    switch (unref(options?.trigger) ?? defaultTrigger) {
       case "click-to-open": {
         on(referenceRef.value!, "click", doOpen);
         on(document as any, "click", doCloseForDocument);
@@ -248,6 +251,31 @@ export function usePopperjs(
       }
     }
   );
+
+  if (
+    process.env.NODE_ENV === "development" ||
+    process.env.NODE_ENV === "test"
+  ) {
+    watch(
+      () => [
+        unref(options?.trigger),
+        unref(options?.delayOnMouseover),
+        unref(options?.delayOnMouseout),
+      ],
+      () => {
+        if ((unref(options?.trigger) ?? defaultTrigger) === "hover") return;
+
+        if (unref(options?.delayOnMouseover) !== undefined) {
+          warn("`delayOnMouseover` only works with `trigger='hover'`");
+        }
+
+        if (unref(options?.delayOnMouseout) !== undefined) {
+          warn("`delayOnMouseout` only works with `trigger='hover'`");
+        }
+      },
+      { immediate: true, deep: true }
+    );
+  }
 
   return {
     instance,
