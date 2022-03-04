@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.1](https://github.com/iendeavor/vue-use-popperjs/compare/v2.3.0...v2.3.1) (2022-03-04)
+
+
+### Bug Fixes
+
+* rest parameter 'args' implicitly has an 'any[]' type ([748dcd0](https://github.com/iendeavor/vue-use-popperjs/commit/748dcd0a5b9c33d26f0c3cddcc4020ace85926ba))
+
 ## [2.3.0](https://github.com/iendeavor/vue-use-popperjs/compare/v2.2.6...v2.3.0) (2022-03-04)
 
 
