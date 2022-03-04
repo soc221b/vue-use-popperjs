@@ -2,14 +2,14 @@
   <template v-if="transitionProps">
     <Transition
       v-bind="transitionProps"
-      @before-enter="(...args) => emit('before-enter', ...args)"
-      @enter="(...args) => emit('enter', ...args)"
-      @after-enter="(...args) => emit('after-enter', ...args)"
-      @enter-cancelled="(...args) => emit('enter-cancelled', ...args)"
-      @before-leave="(...args) => emit('before-leave', ...args)"
-      @leave="(...args) => emit('leave', ...args)"
-      @after-leave="(...args) => emit('after-leave', ...args)"
-      @leave-cancelled="(...args) => emit('leave-cancelled', ...args)"
+      @before-enter="handle('before-enter')"
+      @enter="handle('enter')"
+      @after-enter="handle('after-enter')"
+      @enter-cancelled="handle('enter-cancelled')"
+      @before-leave="handle('before-leave')"
+      @leave="handle('leave')"
+      @after-leave="handle('after-leave')"
+      @leave-cancelled="handle('leave-cancelled')"
     >
       <slot />
     </Transition>
@@ -40,8 +40,14 @@ export default defineComponent({
   ],
 
   setup(_, { emit }) {
+    const handle =
+      (event: Parameters<typeof emit>[0]) =>
+      (...args: any[]) => {
+        return emit(event, ...args);
+      };
+
     return {
-      emit,
+      handle,
     };
   },
 });
