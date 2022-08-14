@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.3](https://github.com/iendeavor/vue-use-popperjs/compare/v2.3.2...v2.3.3) (2022-08-14)
+
+
+### Bug Fixes
+
+* should not depends on node ([c643a4a](https://github.com/iendeavor/vue-use-popperjs/commit/c643a4a225232c772bc4bdf45f35e1c5922e4260))
+
 ### [2.3.2](https://github.com/iendeavor/vue-use-popperjs/compare/v2.3.1...v2.3.2) (2022-08-14)
 
 
