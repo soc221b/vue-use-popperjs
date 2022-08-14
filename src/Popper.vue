@@ -34,17 +34,8 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  ref,
-  toRef,
-  computed,
-  watch,
-  UnwrapRef,
-  PropType,
-  TeleportProps,
-  TransitionProps,
-} from "vue";
+import { defineComponent, ref, toRef, computed, watch } from "vue";
+import type { UnwrapRef, PropType, TeleportProps, TransitionProps } from "vue";
 import { usePopperjs } from "./hook";
 import MaybeTeleport from "./MaybeTeleport.vue";
 import MaybeTransition from "./MaybeTransition.vue";

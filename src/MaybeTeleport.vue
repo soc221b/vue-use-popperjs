@@ -11,7 +11,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, TeleportProps } from "vue";
+import { defineComponent } from "vue";
+import type { PropType, TeleportProps } from "vue";
 
 export default defineComponent({
   props: {

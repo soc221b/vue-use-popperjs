@@ -21,7 +21,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, TransitionProps } from "vue";
+import { defineComponent } from "vue";
+import type { PropType, TransitionProps } from "vue";
 
 export default defineComponent({
   props: {
