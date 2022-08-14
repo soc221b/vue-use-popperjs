@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.2](https://github.com/iendeavor/vue-use-popperjs/compare/v2.3.1...v2.3.2) (2022-08-14)
+
+
+### Bug Fixes
+
+* using type-only import ([106d6b7](https://github.com/iendeavor/vue-use-popperjs/commit/106d6b77de3582d615aa4013123ab041d2bbfe4d))
+
 ### [2.3.1](https://github.com/iendeavor/vue-use-popperjs/compare/v2.3.0...v2.3.1) (2022-03-04)
 
 
