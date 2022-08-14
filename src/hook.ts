@@ -2,6 +2,7 @@ import { onMounted, onUnmounted, onUpdated, ref, unref, watch } from "vue";
 import type { Ref } from "vue";
 import { createPopper } from "@popperjs/core";
 import { warn } from "./utils";
+import { process } from "./node";
 
 export type MaybeRef<T> = T | Ref<T>;
 

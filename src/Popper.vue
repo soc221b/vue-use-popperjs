@@ -39,6 +39,7 @@ import type { UnwrapRef, PropType, TeleportProps, TransitionProps } from "vue";
 import { usePopperjs } from "./hook";
 import MaybeTeleport from "./MaybeTeleport.vue";
 import MaybeTransition from "./MaybeTransition.vue";
+import { process } from "./node";
 
 let popperUid = 0;
 
