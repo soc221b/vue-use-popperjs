@@ -21,3 +21,14 @@ jobs:
       - run: yarn
       - run: make build
       - run: make test
+
+      - uses: JS-DevTools/npm-publish@v1
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: ./package.json
+          tag: v1
+          access: public
+          dry-run: false
+          check-version: true
+          greater-version-only: true
