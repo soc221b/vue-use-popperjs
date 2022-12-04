@@ -21,7 +21,7 @@ describe("Popper", () => {
 
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div>My reference</div>
-      <div style=\\"display: none; position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"vue-use-popperjs-none\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"> My popper </div>"
+      <div style="display: none; position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);" class="vue-use-popperjs-none" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"> My popper </div>"
     `);
   });
 
@@ -40,7 +40,7 @@ describe("Popper", () => {
 
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<button>My reference</button>
-      <div style=\\"display: none; position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"vue-use-popperjs-none\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"> My popper </div>"
+      <div style="display: none; position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);" class="vue-use-popperjs-none" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"> My popper </div>"
     `);
   });
 
@@ -61,8 +61,8 @@ describe("Popper", () => {
     await waitForFinishAnimation();
 
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<button style=\\"color: red;\\">My reference</button>
-      <div style=\\"display: none; position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"vue-use-popperjs-none\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"> My popper </div>"
+      "<button style="color: red;">My reference</button>
+      <div style="display: none; position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);" class="vue-use-popperjs-none" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"> My popper </div>"
     `);
   });
 
@@ -81,7 +81,7 @@ describe("Popper", () => {
 
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div>My reference</div>
-      <p style=\\"display: none; position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"vue-use-popperjs-none\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"> My popper </p>"
+      <p style="display: none; position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);" class="vue-use-popperjs-none" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"> My popper </p>"
     `);
   });
 
@@ -103,7 +103,7 @@ describe("Popper", () => {
 
     expect(wrapper.html()).toMatchInlineSnapshot(`
       "<div>My reference</div>
-      <p style=\\"color: red; display: none; position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"vue-use-popperjs-none\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"> My popper </p>"
+      <p style="color: red; display: none; position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);" class="vue-use-popperjs-none" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"> My popper </p>"
     `);
   });
 
@@ -143,14 +143,14 @@ describe("Popper", () => {
       await waitForFinishAnimation();
 
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<span id=\\"reference\\">My reference</span>
+        "<span id="reference">My reference</span>
         <!--teleport start-->
         <!--teleport end-->"
       `);
       expect(
         wrapper.getComponent(MyPopper).element.parentElement?.outerHTML
       ).toMatchInlineSnapshot(
-        `"<div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"><div>My popper</div></div>"`
+        `"<div style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);" class="" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"><div>My popper</div></div>"`
       );
     });
   });
@@ -171,15 +171,15 @@ describe("Popper", () => {
       await wrapper.get("#reference").trigger("mouseover");
       await waitForFinishAnimation();
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div id=\\"reference\\">My reference</div>
-        <div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"> My popper </div>"
+        "<div id="reference">My reference</div>
+        <div style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);" class="" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"> My popper </div>"
       `);
 
       await wrapper.get("#reference").trigger("mouseout");
       await waitForFinishAnimation();
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div id=\\"reference\\">My reference</div>
-        <div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px); display: none;\\" class=\\"vue-use-popperjs-none\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"> My popper </div>"
+        "<div id="reference">My reference</div>
+        <div style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px); display: none;" class="vue-use-popperjs-none" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"> My popper </div>"
       `);
     });
 
@@ -198,15 +198,15 @@ describe("Popper", () => {
       await wrapper.get("#reference").trigger("click");
       await waitForFinishAnimation();
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div id=\\"reference\\">My reference</div>
-        <div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"> My popper </div>"
+        "<div id="reference">My reference</div>
+        <div style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);" class="" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"> My popper </div>"
       `);
 
       await wrapper.get("#reference").trigger("click");
       await waitForFinishAnimation();
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div id=\\"reference\\">My reference</div>
-        <div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"> My popper </div>"
+        "<div id="reference">My reference</div>
+        <div style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);" class="" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"> My popper </div>"
       `);
     });
 
@@ -225,15 +225,15 @@ describe("Popper", () => {
       await wrapper.get("#reference").trigger("click");
       await waitForFinishAnimation();
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div id=\\"reference\\">My reference</div>
-        <div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"> My popper </div>"
+        "<div id="reference">My reference</div>
+        <div style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);" class="" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"> My popper </div>"
       `);
 
       await wrapper.get("#reference").trigger("click");
       await waitForFinishAnimation();
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div id=\\"reference\\">My reference</div>
-        <div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px); display: none;\\" class=\\"vue-use-popperjs-none\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"> My popper </div>"
+        "<div id="reference">My reference</div>
+        <div style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px); display: none;" class="vue-use-popperjs-none" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"> My popper </div>"
       `);
     });
 
@@ -252,15 +252,15 @@ describe("Popper", () => {
       await wrapper.get("#reference").trigger("focus");
       await waitForFinishAnimation();
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div id=\\"reference\\">My reference</div>
-        <div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"> My popper </div>"
+        "<div id="reference">My reference</div>
+        <div style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);" class="" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"> My popper </div>"
       `);
 
       await wrapper.get("#reference").trigger("blur");
       await waitForFinishAnimation();
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div id=\\"reference\\">My reference</div>
-        <div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px); display: none;\\" class=\\"vue-use-popperjs-none\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"> My popper </div>"
+        "<div id="reference">My reference</div>
+        <div style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px); display: none;" class="vue-use-popperjs-none" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"> My popper </div>"
       `);
     });
 
@@ -288,7 +288,7 @@ describe("Popper", () => {
       await waitForFinishAnimation();
       expect(wrapper.html()).toMatchInlineSnapshot(`
         "<div>My reference</div>
-        <div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"vue-use-popperjs-none\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\">My popper</div>"
+        <div style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);" class="vue-use-popperjs-none" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">My popper</div>"
       `);
 
       visible!.value = true;
@@ -296,7 +296,7 @@ describe("Popper", () => {
       await waitForFinishAnimation();
       expect(wrapper.html()).toMatchInlineSnapshot(`
         "<div>My reference</div>
-        <div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\">My popper</div>"
+        <div style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);" class="" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">My popper</div>"
       `);
 
       visible!.value = false;
@@ -304,7 +304,7 @@ describe("Popper", () => {
       await waitForFinishAnimation();
       expect(wrapper.html()).toMatchInlineSnapshot(`
         "<div>My reference</div>
-        <div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"vue-use-popperjs-none\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\">My popper</div>"
+        <div style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);" class="vue-use-popperjs-none" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">My popper</div>"
       `);
     });
 
@@ -327,15 +327,15 @@ describe("Popper", () => {
       await wrapper.get("#reference").trigger("mouseover");
       await waitForFinishAnimation();
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div id=\\"reference\\">My reference</div>
-        <div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"> My popper </div>"
+        "<div id="reference">My reference</div>
+        <div style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);" class="" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"> My popper </div>"
       `);
 
       await wrapper.get("#reference").trigger("mouseout");
       await waitForFinishAnimation();
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div id=\\"reference\\">My reference</div>
-        <div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px); display: none;\\" class=\\"vue-use-popperjs-none\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"> My popper </div>"
+        "<div id="reference">My reference</div>
+        <div style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px); display: none;" class="vue-use-popperjs-none" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"> My popper </div>"
       `);
 
       trigger.value = "click-to-open";
@@ -344,15 +344,15 @@ describe("Popper", () => {
       await wrapper.get("#reference").trigger("mouseover");
       await waitForFinishAnimation();
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div id=\\"reference\\">My reference</div>
-        <div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px); display: none;\\" class=\\"vue-use-popperjs-none\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"> My popper </div>"
+        "<div id="reference">My reference</div>
+        <div style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px); display: none;" class="vue-use-popperjs-none" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"> My popper </div>"
       `);
 
       await wrapper.get("#reference").trigger("click");
       await waitForFinishAnimation();
       expect(wrapper.html()).toMatchInlineSnapshot(`
-        "<div id=\\"reference\\">My reference</div>
-        <div style=\\"position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);\\" class=\\"\\" data-popper-reference-hidden=\\"\\" data-popper-escaped=\\"\\" data-popper-placement=\\"bottom\\"> My popper </div>"
+        "<div id="reference">My reference</div>
+        <div style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);" class="" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"> My popper </div>"
       `);
     });
   });
