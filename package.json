@@ -59,7 +59,7 @@
     "@vue/test-utils": "^2.0.0-rc.21",
     "change-case": "^4.1.2",
     "conventional-changelog-cli": "^2.1.1",
-    "cypress": "^8.5.0",
+    "cypress": "^11.0.0",
     "husky": "^8.0.0",
     "jest": "^29.0.0",
     "jest-environment-jsdom": "^29.3.1",
