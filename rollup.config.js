@@ -1,12 +1,12 @@
-import path from "path";
-import rm from "rimraf";
-import ts from "rollup-plugin-typescript2";
-import { terser } from "rollup-plugin-terser";
-import resolve from "@rollup/plugin-node-resolve";
-import babel from "@rollup/plugin-babel";
-import replace from "rollup-plugin-replace";
-import vue from "rollup-plugin-vue";
-import { pascalCase } from "change-case";
+const path = require("path");
+const rm = require("rimraf");
+const ts = require("rollup-plugin-typescript2");
+const { terser } = require("rollup-plugin-terser");
+const resolve = require("@rollup/plugin-node-resolve").default;
+const babel = require("@rollup/plugin-babel");
+const replace = require("rollup-plugin-replace");
+const vue = require("rollup-plugin-vue");
+const { pascalCase } = require("change-case");
 
 rm.sync(resolvePackage("dist/**/*"));
 
@@ -85,7 +85,7 @@ formats.forEach((format) => {
   });
 });
 
-export default configs;
+module.exports = configs;
 
 function resolvePackage(...paths) {
   return path.resolve(__dirname, process.cwd(), ...paths);
