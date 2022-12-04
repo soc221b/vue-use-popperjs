@@ -11,5 +11,5 @@
     "lib": ["esnext", "dom"],
     "types": ["jest"]
   },
-  "exclude": ["node_modules", "examples"]
+  "include": ["src", "tests"]
 }
