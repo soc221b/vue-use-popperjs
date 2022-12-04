@@ -29,7 +29,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          pnpm run release
+          make release
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
