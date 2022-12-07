@@ -58,7 +58,7 @@
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@types/jest": "^27",
-    "@types/node": "^16.7.5",
+    "@types/node": "^18.0.0",
     "change-case": "^4.1.2",
     "conventional-changelog-cli": "^2.1.1",
     "cypress": "^8.5.0",
