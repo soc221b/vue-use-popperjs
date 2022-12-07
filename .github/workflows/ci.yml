@@ -23,7 +23,7 @@ jobs:
       - run: make test
 
       - uses: JS-DevTools/npm-publish@v1
-        if: ${{ github.ref == 'refs/heads/main' }}
+        if: ${{ github.ref == 'refs/heads/v1' }}
         with:
           token: ${{ secrets.NPM_TOKEN }}
           package: ./package.json
