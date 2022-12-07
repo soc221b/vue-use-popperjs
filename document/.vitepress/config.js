@@ -22,7 +22,7 @@ module.exports = {
       },
       {
         text: "Changelog",
-        link: "https://github.com/iendeavor/vue-use-popperjs/blob/next/CHANGELOG.md",
+        link: "https://github.com/iendeavor/vue-use-popperjs/blob/main/CHANGELOG.md",
       },
     ],
   },

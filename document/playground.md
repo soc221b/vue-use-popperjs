@@ -8,7 +8,7 @@ import HookPlayground from './components/hook-playground.vue'
 ## Installation
 
 ```shell
-yarn add vue-use-popperjs@next
+yarn add vue-use-popperjs
 ```
 
 ## With Hook
