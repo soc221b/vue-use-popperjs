@@ -9,7 +9,7 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
-    "types": ["jest", "node"]
+    "types": ["node"]
   },
   "exclude": ["node_modules", "examples"]
 }
