@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.3.6 (2023-04-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency core-js to v3.30.0 ([bf37168](https://github.com/iendeavor/vue-use-popperjs/commit/bf371685b5cccf761c811cd0f4bce12532f0296b))
+
 ### 2.3.5 (2023-01-25)
 
 ### 2.3.4 (2022-12-07)
