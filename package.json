@@ -1,5 +1,6 @@
 {
   "name": "vue-use-popperjs",
+  "description": "Vue composable based on @popperjs/core",
   "version": "3.0.0-alpha.3",
   "license": "MIT",
   "repository": {
