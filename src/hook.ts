@@ -1,5 +1,5 @@
 import { onMounted, onUnmounted, onUpdated, ref, unref, watch } from "vue";
-import type { Ref } from "vue";
+import type { Ref, VNode } from "vue";
 import { createPopper } from "@popperjs/core";
 import { warn } from "./utils";
 import { process } from "./node";
@@ -40,8 +40,8 @@ function off(
 const defaultTrigger: Trigger = "hover";
 
 export function usePopperjs(
-  reference: MaybeRef<Parameters<typeof createPopper>["0"]>,
-  popper: MaybeRef<Parameters<typeof createPopper>["1"]>,
+  reference: MaybeRef<null | Element | VNode>,
+  popper: MaybeRef<null | HTMLElement | VNode>,
   options?: Partial<
     Parameters<typeof createPopper>["2"] &
       EventOptions & {
@@ -66,23 +66,29 @@ export function usePopperjs(
     updatedFlag.value = !updatedFlag.value;
   });
 
-  const referenceRef = ref<Element>();
-  const popperRef = ref<HTMLElement>();
+  const referenceRef = ref<null | Element>(null);
+  const popperRef = ref<null | HTMLElement>(null);
   watch(
     () => [isMounted.value, updatedFlag.value],
     () => {
       if (!isMounted.value) return;
 
-      if ((unref(reference) as any)?.$el) {
-        referenceRef.value = (unref(reference) as any).$el;
+      const _reference = unref(reference);
+      if (_reference instanceof Element) {
+        referenceRef.value = _reference;
+      } else if (_reference?.el instanceof Element) {
+        referenceRef.value = _reference.el;
       } else {
-        referenceRef.value = unref(reference) as Element;
+        referenceRef.value = null;
       }
 
-      if ((unref(popper) as any)?.$el) {
-        popperRef.value = (unref(popper) as any).$el;
+      const _popper = unref(popper);
+      if (_popper instanceof HTMLElement) {
+        popperRef.value = _popper;
+      } else if (_popper?.el instanceof HTMLElement) {
+        popperRef.value = _popper.el;
       } else {
-        popperRef.value = unref(popper);
+        popperRef.value = null;
       }
     }
   );
@@ -94,7 +100,6 @@ export function usePopperjs(
       destroy();
       if (!referenceRef.value) return;
       if (!popperRef.value) return;
-
       concrete();
     }
   );
