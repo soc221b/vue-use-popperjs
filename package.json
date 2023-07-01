@@ -1,0 +1,48 @@
+{
+  "name": "vue-use-popperjs",
+  "version": "3.0.0-alpha.3",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:iendeavor/vue-use-popperjs.git"
+  },
+  "home": "https://github.com/iendeavor/vue-use-popperjs",
+  "bugs": {
+    "url": "https://github.com/iendeavor/vue-use-popperjs/issues"
+  },
+  "author": "Ernest <iendeavor.github.io@gmail.com>",
+  "type": "module",
+  "types": "dist/vue-use-popperjs.d.ts",
+  "main": "./dist/vue-use-popperjs.umd.cjs",
+  "module": "./dist/vue-use-popperjs.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-use-popperjs.js",
+      "require": "./dist/vue-use-popperjs.umd.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "prettier --write .",
+    "build": "vue-tsc && vite build",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@popperjs/core": "^2",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "@vue/test-utils": "^2.4.0",
+    "prettier": "^2.8.8",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.9",
+    "vite-plugin-dts": "^3.0.2",
+    "vitest": "^0.32.2",
+    "vue": "^2.7 || ^3.2",
+    "vue-tsc": "^1.4.2"
+  },
+  "peerDependencies": {
+    "@popperjs/core": "^2",
+    "vue": "^2.7 || ^3.2"
+  }
+}
